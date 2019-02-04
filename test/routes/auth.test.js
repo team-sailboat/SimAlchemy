@@ -56,5 +56,29 @@ describe('auth', () => {
           });
       });
   });
+
+  it('can verify a route', () => {
+    return createTeacher('drunkTeonna', '#blazed')
+      .then(() => {
+        return request(app)
+          .post('/auth/verify')
+          .send({
+            username: 'drunkTeonna',
+            password: '#blazed'
+          })
+          .then(res => res.body.token);
+      })
+      .then(token => {
+        return request(app)
+          .get('/auth/verify')
+          .set('Authorization', `Bearer ${token}`);
+      })
+      .then(res => {
+        expect(res.body).toEqual({
+          username: 'drunkTeonna',
+          _id: expect.any(String)
+        });
+      });
+  });
 });
 
