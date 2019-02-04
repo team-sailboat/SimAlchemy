@@ -14,7 +14,13 @@ module.exports = () => {
       type: 'password',
       name: 'password',
       message: 'Password',
-      mask: true
+      mask: true,
+      validate: function(value) {
+        if(value) {
+          return true;
+        }
+        return 'Please enter a password';
+      }
     }
   ])
     .then(({ username, password }) => {
