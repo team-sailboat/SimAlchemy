@@ -5,12 +5,10 @@ const Teacher = require('../lib/models/Teacher');
 
 const TOTAL_TEACHERS = 5;
 
-const rdmNum = Math.random().toFixed(2).slice(2);
-
 module.exports = ({ totalTeachers = TOTAL_TEACHERS }) => {
   return Promise.all([...Array(totalTeachers)].map((el, idx) => {
     return Teacher.create({
-      username: `teacher${idx}${rdmNum}`,
+      username: `teacher${idx}`,
       password: 'sailboatz'
     });
   }));
