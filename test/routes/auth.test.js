@@ -3,14 +3,14 @@ require('../../lib/utils/connect')();
 const mongoose = require('mongoose');
 const request = require('supertest');
 const app = require('../../lib/app');
-// const Teacher = require('../../lib/models/Teacher');
+const Teacher = require('../../lib/models/Teacher');
 
-// const createTeacher = (username, password) => {
-//   return Teacher.create({
-//     username,
-//     password
-//   });
-// };
+const createTeacher = (username, password) => {
+  return Teacher.create({
+    username,
+    password
+  });
+};
 
 describe('auth', () => {
   beforeEach(done => {
@@ -38,4 +38,23 @@ describe('auth', () => {
         });
       });
   });
+
+  it('can signin a teacher', () => {
+    return createTeacher('teonna', 'password')
+      .then(teacher => {
+        return request(app)
+          .post('/auth/signin')
+          .send({ username: 'teonna', password: 'password' })
+          .then(res => {
+            expect(res.body).toEqual({ 
+              teacher: {
+                username: 'teonna',
+                _id: teacher._id.toString()
+              },
+              token: expect.any(String)
+            });
+          });
+      });
+  });
 });
+
