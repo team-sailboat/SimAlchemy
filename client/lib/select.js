@@ -1,6 +1,15 @@
+/* eslint-disable no-console */
 const inquirer = require('inquirer');
 const signin = require('./signin');
 const signup = require('./signup');
+const figlet = require('figlet');
+
+console.log(figlet.textSync('SimAlchemy\r', {
+  // font: 'chunky',
+  horizontalLayout: 'default',
+  verticalLayout: 'default'
+}));
+
 
 const select = () => {
   return inquirer.prompt([
