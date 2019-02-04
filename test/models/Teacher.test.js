@@ -2,6 +2,7 @@ require('dotenv').config();
 require('../../lib/utils/connect')();
 const mongoose = require('mongoose');
 const Teacher = require('../../lib/models/Teacher');
+const { tokenize, untokenize } = require('../../lib/utils/token');
 
 const createTeacher = (username, password) => {
   return Teacher.create({
@@ -20,6 +21,7 @@ describe('Teacher', () => {
     mongoose.connection.close();
     done();
   });
+
   it('validates a good model', () => {
     const teacher = new Teacher({
       username: 'martypdx'
@@ -29,12 +31,14 @@ describe('Teacher', () => {
       username: 'martypdx'
     });
   });
+
   it('requires a username', () => {
     const teacher = new Teacher({});
     const errors = teacher.validateSync().errors;
     expect(errors).toBeDefined();
     expect(errors.username.message).toEqual('Username required');
   });
+  
   it('stores a temp password', () => {
     const teacher = new Teacher({
       username: 'roboryan',
@@ -42,12 +46,14 @@ describe('Teacher', () => {
     });
     expect(teacher._tempPassword).toEqual('password');
   });
+
   it('has a passwordHash', () => {
     return createTeacher('robocop', 'password')
       .then(teacher => {
         expect(teacher.passwordHash).toEqual(expect.any(String));
       });
   });
+
   it('can compare passwords', () => {
     return createTeacher('featherMorhead', 'password')
       .then(teacher => {
@@ -57,6 +63,7 @@ describe('Teacher', () => {
         expect(res).toBeTruthy();
       });
   });
+
   it('can detect bad passwords', () => {
     return createTeacher('featherMorhead', 'password')
       .then(teacher => {
@@ -64,6 +71,30 @@ describe('Teacher', () => {
       })
       .then(res => {
         expect(res).toBeFalsy();
+      });
+  });
+
+  it('can find a user by token', () => {
+    return createTeacher('banana', 'password')
+      .then(teacher => tokenize(teacher))
+      .then(token => Teacher.findByToken(token))
+      .then(foundTeacher => {
+        expect(foundTeacher).toEqual({
+          _id: expect.any(String),
+          username: 'banana'
+        });
+      });
+  });
+
+  it('can create an auth token', () => {
+    return createTeacher('flippyfloppies', 'onaboat')
+      .then(teacher => teacher.authToken())
+      .then(untokenize)
+      .then(teacher => {
+        expect(teacher).toEqual({
+          _id: expect.any(String),
+          username: 'flippyfloppies'
+        });
       });
   });
 });
