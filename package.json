@@ -17,7 +17,8 @@
     "test:watch": "jest --watch --verbose --runInBand --detectOpenHandles",
     "start": "node server.js",
     "start:watch": "nodemon server.js",
-    "seed": "node seed.js"
+    "seed": "node seed.js",
+    "client": "node client/client.js"
   },
   "repository": {
     "type": "git",
