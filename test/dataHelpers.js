@@ -38,6 +38,16 @@ afterAll(done => {
   mongoose.connection.close(done);
 });
 
+const prepare = model => JSON.parse(JSON.stringify(model));
+const prepareAll = models => models.map(prepare);
+const createGetters = Model => {
+  return {
+    [`get${Model.modelName}`]: (query = {}) => Model.findOne(query).then(prepare),
+    [`get${Model.modelName}s`]: (query = {}) => Model.find(query).then(prepareAll)
+  };
+};
+
 module.exports = {
-  getToken: () => token
+  getToken: () => token,
+  ...createGetters(Teacher)
 };
