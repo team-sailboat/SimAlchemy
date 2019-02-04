@@ -1,0 +1,42 @@
+{
+  "name": "SimAlchemy",
+  "version": "1.0.0",
+  "description": "**Authors**: [Kate Dameron](https://github.com/orgs/the-ripest-banana/people/Katedam), [Paige Gorry](https://github.com/orgs/the-ripest-banana/people/paigeegorry), [Teonna Zaragoza](https://github.com/tmzaragoza), [Cari Palazzolo](https://github.com/caripizza)",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/team-sailboat/SimAlchemy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/team-sailboat/SimAlchemy/issues"
+  },
+  "homepage": "https://github.com/team-sailboat/SimAlchemy#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "inquirer": "^6.2.2",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.9",
+    "morgan": "^1.9.1",
+    "superagent": "^4.1.0"
+  },
+  "devDependencies": {
+    "chance": "^1.0.18",
+    "eslint": "^5.13.0",
+    "jest": "^24.0.0",
+    "nodemon": "^1.18.9",
+    "supertest": "^3.4.2"
+  }
+}
