@@ -47,7 +47,7 @@ describe('auth', () => {
           .send({ username: 'teonna', password: 'password' })
           .then(res => {
             expect(res.body).toEqual({ 
-              teacher: {
+              foundTeacher: {
                 username: 'teonna',
                 _id: teacher._id.toString()
               },
