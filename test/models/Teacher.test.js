@@ -48,4 +48,22 @@ describe('Teacher', () => {
         expect(teacher.passwordHash).toEqual(expect.any(String));
       });
   });
+  it('can compare passwords', () => {
+    return createTeacher('featherMorhead', 'password')
+      .then(teacher => {
+        return teacher.compare('password');
+      })
+      .then(res => {
+        expect(res).toBeTruthy();
+      });
+  });
+  it('can detect bad passwords', () => {
+    return createTeacher('featherMorhead', 'password')
+      .then(teacher => {
+        return teacher.compare('badpassword');
+      })
+      .then(res => {
+        expect(res).toBeFalsy();
+      });
+  });
 });
