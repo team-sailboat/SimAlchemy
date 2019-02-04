@@ -61,7 +61,7 @@ describe('auth', () => {
     return createTeacher('drunkTeonna', '#blazed')
       .then(() => {
         return request(app)
-          .post('/auth/verify')
+          .post('/auth/signin')
           .send({
             username: 'drunkTeonna',
             password: '#blazed'
