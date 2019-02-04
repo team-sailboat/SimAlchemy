@@ -26,7 +26,10 @@ const select = () => {
         return signup();
       }
     })
-    .catch(error => console.log(error.response.body.error)); 
+    .catch(error => {
+      console.log(error.response.body.error);
+      signin();
+    });   
 };
 
 module.exports = select;
