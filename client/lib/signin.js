@@ -13,7 +13,8 @@ module.exports = () => {
     {
       type: 'password',
       name: 'password',
-      message: 'Password'
+      message: 'Password',
+      mask: true
     }
   ])
     .then(({ username, password }) => {
