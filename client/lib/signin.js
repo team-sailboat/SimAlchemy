@@ -4,6 +4,7 @@ const config = require('../config');
 const inquirer = require('inquirer');
 const request = require('superagent');
 const { setToken } = require('../helper/tokens');
+// const app = require('../../lib/app');
 
 module.exports = () => {
   return inquirer.prompt([
