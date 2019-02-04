@@ -22,4 +22,10 @@ describe('Teacher', () => {
       username: 'martypdx'
     });
   });
+  it('requires a username', () => {
+    const teacher = new Teacher({});
+    const errors = teacher.validateSync().errors;
+    expect(errors).toBeDefined();
+    expect(errors.username.message).toEqual('Username required');
+  });
 });
