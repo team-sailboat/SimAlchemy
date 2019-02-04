@@ -1,3 +1,4 @@
-const signin = require('./lib/signin');
+/*eslint-disable no-console*/
+const selection = require('./lib/select');
 
-signin();
+selection();

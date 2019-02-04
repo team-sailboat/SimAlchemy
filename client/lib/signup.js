@@ -27,7 +27,7 @@ module.exports = () => {
   ])
     .then(({ username, password }) => {
       return request
-        .post(`${config.url}/auth/signin`)
+        .post(`${config.url}/auth/signup`)
         .send({ username, password });
     })
     .then(res => {
@@ -35,3 +35,5 @@ module.exports = () => {
     });
 
 };
+
+
