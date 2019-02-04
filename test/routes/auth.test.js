@@ -73,6 +73,22 @@ describe('auth', () => {
       });
   });
 
+  it('can NOT signin user if username not a match', () => {
+    return createTeacher('nancyRaegan', '123security')
+      .then(() => {
+        return request(app)
+          .post('/auth/signin')
+          .send({
+            username: 'ronaldMcDonald',
+            password: '123security'
+          })
+          .then(res => {
+            expect(res.status).toEqual(401);
+            expect(res.body).toEqual({ error: 'Bad username or password' });
+          });
+      });
+  });
+
   it('can verify a route', () => {
     return createTeacher('drunkTeonna', '#blazed')
       .then(() => {
