@@ -1,7 +1,7 @@
 {
   "name": "SimAlchemy",
   "version": "1.0.0",
-  "description": "**Authors**: [Kate Dameron](https://github.com/orgs/the-ripest-banana/people/Katedam), [Paige Gorry](https://github.com/orgs/the-ripest-banana/people/paigeegorry), [Teonna Zaragoza](https://github.com/tmzaragoza), [Cari Palazzolo](https://github.com/caripizza)",
+  "description": "",
   "main": "server.js",
   "directories": {
     "lib": "lib",
@@ -24,7 +24,7 @@
     "url": "git+https://github.com/team-sailboat/SimAlchemy.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "[Kate Dameron](https://github.com/Katedam), [Paige Gorry](https://github.com/paigeegorry), [Teonna Zaragoza](https://github.com/tmzaragoza), [Cari Palazzolo](https://github.com/caripizza)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/team-sailboat/SimAlchemy/issues"
