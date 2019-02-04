@@ -3,6 +3,13 @@ require('../../lib/utils/connect')();
 const mongoose = require('mongoose');
 const Teacher = require('../../lib/models/Teacher');
 
+const createTeacher = (username, password) => {
+  return Teacher.create({
+    username,
+    password
+  });
+};
+
 describe('Teacher', () => {
   beforeEach(done => {
     return mongoose.connection.dropDatabase(() => {
@@ -27,5 +34,18 @@ describe('Teacher', () => {
     const errors = teacher.validateSync().errors;
     expect(errors).toBeDefined();
     expect(errors.username.message).toEqual('Username required');
+  });
+  it('stores a temp password', () => {
+    const teacher = new Teacher({
+      username: 'roboryan',
+      password: 'password'
+    });
+    expect(teacher._tempPassword).toEqual('password');
+  });
+  it('has a passwordHash', () => {
+    return createTeacher('robocop', 'password')
+      .then(teacher => {
+        expect(teacher.passwordHash).toEqual(expect.any(String));
+      });
   });
 });
