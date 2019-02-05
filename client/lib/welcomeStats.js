@@ -3,8 +3,9 @@ const config = require('../config');
 const request = require('superagent');
 const inquirer = require('inquirer');
 const { getToken } = require('../helper/tokens');
+const assignmentPost = require('./assignment');
 
-const cohortPost = (id) => {
+const welcomeStats = (id) => {
   return inquirer.prompt([
     {
       type: 'confirm',
@@ -34,7 +35,7 @@ const cohortPost = (id) => {
               }
             ])
               .then(() => {
-                return console.log('continue!!!!');
+                return assignmentPost(id);
               });
           });
       }
@@ -42,4 +43,4 @@ const cohortPost = (id) => {
 };
 
 
-module.exports = cohortPost;
+module.exports = welcomeStats;

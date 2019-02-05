@@ -4,7 +4,7 @@ const config = require('../config');
 const inquirer = require('inquirer');
 const request = require('superagent');
 const { setToken } = require('../helper/tokens');
-const cohortPost = require('../lib/cohortPost');
+const welcomeStats = require('./welcomeStats');
 
 module.exports = () => {
   return inquirer.prompt([
@@ -48,7 +48,7 @@ module.exports = () => {
               knowledge
             })
             .then(({ body }) => {
-              return cohortPost(body._id);
+              return welcomeStats(body._id);
             });
         });
     });
