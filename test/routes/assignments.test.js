@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../../lib/app');
-const { getToken, getCohort } = require('../dataHelpers');
+const { getToken, getCohort, getAssignment } = require('../dataHelpers');
 
 describe('assignments', () => {
 
@@ -33,8 +33,23 @@ describe('assignments', () => {
     return request(app)
       .get('/assignments')
       .then(res => {
-        console.log(res.body); 
         expect(res.body).toHaveLength(18);
+      });
+  });
+
+  it('can get an assignment by id', () => {
+    return getAssignment()
+      .then(assign => {
+        return request(app)
+          .get(`/assignments/${assign._id}`)
+          .then(res => {
+            expect(res.body).toEqual({
+              cohortId: expect.any(String),
+              difficulty: expect.any(String),
+              name: expect.any(String),
+              travis: expect.any(Boolean)
+            });
+          });
       });
   });
 
