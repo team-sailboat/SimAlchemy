@@ -31,7 +31,22 @@ module.exports = () => {
         .send({ username, password });
     })
     .then(res => {
-      setToken(res.body.token);
+      return Promise.all([
+        setToken(res.body.token),
+        res.body.teacher._id
+      ])
+        .then(([token, id]) => {
+          let stress, sleep, knowledge;
+          return request
+            .post(`${config.url}/cohorts`)
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+              teacher: id,
+              stress,
+              sleep,
+              knowledge
+            });
+        });
     });
 
 };
