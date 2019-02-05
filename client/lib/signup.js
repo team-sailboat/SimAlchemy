@@ -47,12 +47,11 @@ module.exports = () => {
               sleep,
               knowledge
             })
-            .then(() => {
-              return cohortPost(id);
+            .then(({ body }) => {
+              return cohortPost(body._id);
             });
         });
     });
-
 
 };
 
