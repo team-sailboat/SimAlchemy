@@ -1,28 +1,9 @@
-require('dotenv').config();
-require('../../lib/utils/connect')();
-const mongoose = require('mongoose');
+
+const { getTeacher } = require('../dataHelpers');
 const request = require('supertest');
 const app = require('../../lib/app');
-const Teacher = require('../../lib/models/Teacher');
-
-const createTeacher = (username, password) => {
-  return Teacher.create({
-    username,
-    password
-  });
-};
 
 describe('auth', () => {
-  beforeEach(done => {
-    return mongoose.connection.dropDatabase(() => {
-      done();
-    });
-  });
-  afterAll(done => {
-    mongoose.connection.close();
-    done();
-  });
-
   it('can signup a new teacher and include token', () => {
     const teacher = { username: 'cari', password: 'pizza' };
     return request(app)
@@ -40,16 +21,16 @@ describe('auth', () => {
   });
 
   it('can signin a teacher', () => {
-    return createTeacher('teonna', 'password')
-      .then(teacher => {
+    return getTeacher()
+      .then(() => {
         return request(app)
           .post('/auth/signin')
-          .send({ username: 'teonna', password: 'password' })
+          .send({ username: 'teacher1', password: 'sailboatz' })
           .then(res => {
             expect(res.body).toEqual({ 
               foundTeacher: {
-                username: 'teonna',
-                _id: teacher._id.toString()
+                username: 'teacher1',
+                _id: expect.any(String)
               },
               token: expect.any(String)
             });
@@ -58,13 +39,13 @@ describe('auth', () => {
   });
 
   it('can NOT signin user if bad password', () => {
-    return createTeacher('booboo3000', 'b4ckFrumZeDad')
+    return getTeacher()
       .then(() => {
         return request(app)
           .post('/auth/signin')
           .send({
-            username: 'booboo3000',
-            password: 'hacker4life'
+            username: 'teacher1',
+            password: 'sailbutz'
           })
           .then(res => {
             expect(res.status).toEqual(401);
@@ -74,13 +55,13 @@ describe('auth', () => {
   });
 
   it('can NOT signin user if username not a match', () => {
-    return createTeacher('nancyRaegan', '123security')
+    return getTeacher()
       .then(() => {
         return request(app)
           .post('/auth/signin')
           .send({
-            username: 'ronaldMcDonald',
-            password: '123security'
+            username: 'teacher123',
+            password: 'sailboatz'
           })
           .then(res => {
             expect(res.status).toEqual(401);
@@ -90,13 +71,13 @@ describe('auth', () => {
   });
 
   it('can verify a route', () => {
-    return createTeacher('drunkTeonna', '#blazed')
+    return getTeacher()
       .then(() => {
         return request(app)
           .post('/auth/signin')
           .send({
-            username: 'drunkTeonna',
-            password: '#blazed'
+            username: 'teacher1',
+            password: 'sailboatz'
           })
           .then(res => res.body.token);
       })
@@ -107,7 +88,7 @@ describe('auth', () => {
       })
       .then(res => {
         expect(res.body).toEqual({
-          username: 'drunkTeonna',
+          username: 'teacher1',
           _id: expect.any(String)
         });
       });
