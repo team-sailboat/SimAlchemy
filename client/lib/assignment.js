@@ -25,7 +25,29 @@ const assignmentPost = id => {
     }
   ])
     .then(assType => {
-      console.log('ass', assType);
+      return inquirer.prompt([
+        {
+          type: 'list',
+          name: 'difficulty',
+          message: 'Choose a difficulty:',
+          choices: [{ 
+            name: 'easy',
+            value: 'easy'
+          },
+          {
+            name: 'medium',
+            value: 'medium'
+          },
+          {
+            name: 'hard',
+            value: 'hard'
+          }
+          ]
+        }
+      ])
+        .then(difficulty => {
+          console.log('assType, diff', assType, difficulty);
+        });
     });
 };
 module.exports = assignmentPost;
