@@ -2,10 +2,11 @@ const config = require('../config');
 const request = require('superagent');
 const inquirer = require('inquirer');
 const { getToken } = require('../helper/tokens');
+const updateStats = require('./updateStats');
 
 
 const assignmentPost = id => {
-  console.log(id);
+ 
   return inquirer.prompt([
     {
       type: 'list',
@@ -64,11 +65,14 @@ const assignmentPost = id => {
             .post(`${config.url}/assignments`)
             .set('Authorization', `Bearer ${getToken()}`)
             .send({
+              cohortId: id,
               name: assType.assignment,
               difficulty: difficulty.type,
               travis
             })
-            .then(console.logdd);
+            .then(() => {
+              return updateStats(id, difficulty);
+            });
         });
     });
 };
