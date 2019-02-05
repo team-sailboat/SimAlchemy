@@ -22,7 +22,7 @@ describe('assignments', () => {
           cohortId: expect.any(String),
           name: 'lab',
           difficulty: 'hard',
-          travis: 'true',
+          travis: true,
           __v: 0
         });
       });
