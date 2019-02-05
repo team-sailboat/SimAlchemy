@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const seedData = require('./seedData');
 const Teacher = require('../lib/models/Teacher');
 const Cohort = require('../lib/models/Cohort');
+const Assignment = require('../lib/models/Assignment');
 const request = require('supertest');
 const app = require('../lib/app');
 
@@ -16,7 +17,7 @@ beforeEach(done => {
 });
 
 beforeEach(() => {
-  return seedData({ totalTeachers: 3 });
+  return seedData({ totalTeachers: 3, totalCohorts: 9, totalAssignments: 18 });
 });
 
 let token;
@@ -51,5 +52,6 @@ const createGetters = Model => {
 module.exports = {
   getToken: () => token,
   ...createGetters(Teacher),
-  ...createGetters(Cohort)
+  ...createGetters(Cohort),
+  ...createGetters(Assignment)
 };
