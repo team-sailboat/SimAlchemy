@@ -67,12 +67,12 @@ describe('cohorts', () => {
                 _id: expect.any(String), 
                 username: expect.any(String) } 
             });
-            expect(res.body.assignments).toContainEqual({
-              cohortId: expect.any(String),
-              name: expect.any(String),
-              difficulty: expect.any(String),
-              travis: expect.any(Boolean)
-            });
+            // expect(res.body.assignments).toContainEqual({
+            //   cohortId: expect.any(String),
+            //   name: expect.any(String),
+            //   difficulty: expect.any(String),
+            //   travis: expect.any(Boolean)
+            // });
           });
       });
   });
