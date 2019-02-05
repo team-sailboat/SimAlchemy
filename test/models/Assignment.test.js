@@ -10,15 +10,16 @@ describe('Assignment Model', () => {
     const assignment = new Assignment({
       cohortId: cohort._id,
       name: 'lab',
-      difficulty: 'hard'
+      difficulty: 'hard',
+      travis: false
     });
     expect(assignment.toJSON()).toEqual({
       _id: expect.any(Object),
       cohortId: expect.any(mongoose.Types.ObjectId),
       name: 'lab',
-      difficulty: 'hard'
+      difficulty: 'hard',
+      travis: false
     });
   });
 
 });
-

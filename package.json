@@ -18,7 +18,9 @@
     "start": "node server.js",
     "start:watch": "nodemon server.js",
     "seed": "node seed.js",
-    "client": "node client/client.js"
+    "client": "node client/client.js",
+    "drop": "mongo SimAlchemy --eval 'db.dropDatabase()'",
+    "db-load-all": "npm run drop && npm run seed"
   },
   "repository": {
     "type": "git",
