@@ -26,25 +26,16 @@ const updateStats = (id, difficulty) => {
         newKnowledge = knowledge * .2;
         newStress = stress * .2;
       }
-      console.log('here', newSleep, newKnowledge, newStress);
+      return request
+        .patch(`${config.url}/cohorts/${id}`)
+        .set('Authorization', `Bearer ${getToken()}`)
+        .send({
+          sleep: newSleep,
+          knowledge: newKnowledge,
+          stress: newStress
+        });
     });
 
-  
-  
-  // let sleep, knowledge, stress;
-
-  // if(difficulty.type === 'hard') {
-  //   sleep *= .2;
-  //   knowledge *= .2;
-  //   stress *= .2;
-  // }
-  // console.log('15', sleep, knowledge, stress);
-  // return request
-  //   .patch(`${config.url}/cohorts/${id}`)
-  //   .set('Authorization', `Bearer ${getToken()}`)
-  //   .send({
-
-  //   })
     
 
   // return inquirer.prompt([
