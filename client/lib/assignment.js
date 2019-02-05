@@ -3,7 +3,9 @@ const request = require('superagent');
 const inquirer = require('inquirer');
 const { getToken } = require('../helper/tokens');
 
+
 const assignmentPost = id => {
+  console.log(id);
   return inquirer.prompt([
     {
       type: 'list',
@@ -28,7 +30,7 @@ const assignmentPost = id => {
       return inquirer.prompt([
         {
           type: 'list',
-          name: 'difficulty',
+          name: 'type',
           message: 'Choose a difficulty:',
           choices: [{ 
             name: 'easy',
@@ -46,7 +48,27 @@ const assignmentPost = id => {
         }
       ])
         .then(difficulty => {
-          console.log('assType, diff', assType, difficulty);
+          let travis;
+
+          if(difficulty.type === 'easy') {
+            travis = 100;
+          }
+          else if(difficulty.type === 'medium') {
+            travis = 75;
+          }
+          else {
+            travis = 50;
+          }
+        
+          return request 
+            .post(`${config.url}/assignments`)
+            .set('Authorization', `Bearer ${getToken()}`)
+            .send({
+              name: assType.assignment,
+              difficulty: difficulty.type,
+              travis
+            })
+            .then(console.logdd);
         });
     });
 };
