@@ -1,33 +1,20 @@
-require('dotenv').config();
-require('../../lib/utils/connect')();
 const mongoose = require('mongoose');
 const Assignment = require('../../lib/models/Assignment');
-
-// const createAssignment = (name, difficulty) => {
-//   return Assignment.create({
-//     name,
-//     difficulty
-//   });
-// };
+const { getTeacher, getCohort } = require('../dataHelpers');
 
 describe('Assignment Model', () => {
-  beforeEach(done => {
-    return mongoose.connection.dropDatabase(() => {
-      done();
-    });
-  });
-  afterAll(done => {
-    mongoose.connection.close();
-    done();
-  });
 
-  it('validates a good model', () => {
+  it('validates a good model', async() => {
+    const teacher = await getTeacher();
+    const cohort = await getCohort({ teacher: teacher._id });
     const assignment = new Assignment({
+      cohortId: cohort._id,
       name: 'lab',
       difficulty: 'hard'
     });
     expect(assignment.toJSON()).toEqual({
-      _id: expect.any(mongoose.Types.ObjectId),
+      _id: expect.any(Object),
+      cohortId: expect.any(mongoose.Types.ObjectId),
       name: 'lab',
       difficulty: 'hard'
     });

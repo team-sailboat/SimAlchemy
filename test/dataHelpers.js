@@ -3,6 +3,7 @@ const connect = require('../lib/utils/connect');
 const mongoose = require('mongoose');
 const seedData = require('./seedData');
 const Teacher = require('../lib/models/Teacher');
+const Cohort = require('../lib/models/Cohort');
 const request = require('supertest');
 const app = require('../lib/app');
 
@@ -49,5 +50,6 @@ const createGetters = Model => {
 
 module.exports = {
   getToken: () => token,
-  ...createGetters(Teacher)
+  ...createGetters(Teacher),
+  ...createGetters(Cohort)
 };
