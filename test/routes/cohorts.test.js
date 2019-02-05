@@ -3,7 +3,8 @@ const app = require('../../lib/app');
 const {
   getTeacher,
   getToken,
-  getCohorts
+  getCohorts,
+  getCohort
 } = require('../dataHelpers');
 
 describe('cohorts', () => {
@@ -45,6 +46,18 @@ describe('cohorts', () => {
       })
       .then(([body, cohorts]) => {
         expect(body).toHaveLength(cohorts.length);
+      });
+  });
+
+  it('can get a cohort by id', () => {
+    return getCohort()
+      .then(foundCohort => {
+        return request(app)
+          .get(`/cohorts/${foundCohort._id}`);
+      })
+      .then(res => {
+        console.log('RESSSSSSs', res.body);
+        expect(res.body).toEqual('');
       });
   });
 });
