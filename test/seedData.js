@@ -24,4 +24,5 @@ module.exports = ({ totalTeachers = TOTAL_TEACHERS, totalCohorts = TOTAL_COHORTS
         });
       }));
     });
+  }));
 };
