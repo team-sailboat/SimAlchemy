@@ -34,7 +34,8 @@ module.exports = ({
             return Assignment.create({
               cohortId: chance.pickone(cohorts)._id,
               name: chance.pickone(['Lab', 'Reading', 'Lecture']),
-              difficulty: chance.pickone(['Easy', 'Medium', 'Hard'])
+              difficulty: chance.pickone(['Easy', 'Medium', 'Hard']),
+              travis: chance.pickone([true, false])
             });
           }));
         });

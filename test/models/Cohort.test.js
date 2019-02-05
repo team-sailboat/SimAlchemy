@@ -14,7 +14,7 @@ describe('Cohort', () => {
     expect(cohort.toJSON()).toEqual({ stress: 0,
       sleep: 100,
       knowledge: 25,
-      _id: expect.any(Object),
+      _id: expect.any(mongoose.Types.ObjectId),
       teacher: expect.any(mongoose.Types.ObjectId) });
   });
 });
