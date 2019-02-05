@@ -63,7 +63,7 @@ describe('cohorts', () => {
           knowledge: expect.any(Number),
           teacher: { 
             _id: expect.any(String), 
-            username: 'teacher0' } 
+            username: expect.any(String) } 
         });
       });
   });
@@ -78,7 +78,12 @@ describe('cohorts', () => {
       })
       .then(res => {
         console.log('res', res.body);
-        expect(res.body).toEqual('kate and drunk teonna');
+        expect(res.body).toEqual({ stress: 6,
+          sleep: 0,
+          knowledge: 50,
+          teacher: { 
+            _id: expect.any(String), 
+            username: expect.any(String) } });
       });
   });
 });
