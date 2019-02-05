@@ -1,5 +1,3 @@
-require('dotenv').config();
-require('../../lib/utils/connect')();
 const mongoose = require('mongoose');
 const { getTeacher } = require('../dataHelpers');
 const Cohort = require('../../lib/models/Cohort');
@@ -13,7 +11,6 @@ describe('Cohort', () => {
       sleep: 100,
       knowledge: 25
     });
-    console.log(typeof cohort._id);
     expect(cohort.toJSON()).toEqual({ stress: 0,
       sleep: 100,
       knowledge: 25,
