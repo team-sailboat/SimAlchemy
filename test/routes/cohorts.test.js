@@ -6,6 +6,7 @@ const {
   getCohorts,
   getCohort
 } = require('../dataHelpers');
+// const mongoose = require('mongoose');
 
 describe('cohorts', () => {
   it('can post a cohort', () => {
@@ -53,11 +54,17 @@ describe('cohorts', () => {
     return getCohort()
       .then(foundCohort => {
         return request(app)
-          .get(`/cohorts/${foundCohort._id}`);
+          .get(`/cohorts/${foundCohort._id}`)
+          .set('Authorization', `Bearer ${getToken()}`);
       })
       .then(res => {
-        console.log('RESSSSSSs', res.body);
-        expect(res.body).toEqual('');
+        expect(res.body).toEqual({ stress: expect.any(Number),
+          sleep: expect.any(Number),
+          knowledge: expect.any(Number),
+          teacher: { 
+            _id: expect.any(String), 
+            username: 'teacher0' } 
+        });
       });
   });
 });
