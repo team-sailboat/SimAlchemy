@@ -55,16 +55,25 @@ describe('cohorts', () => {
       .then(foundCohort => {
         return request(app)
           .get(`/cohorts/${foundCohort._id}`)
-          .set('Authorization', `Bearer ${getToken()}`);
-      })
-      .then(res => {
-        expect(res.body).toEqual({ stress: expect.any(Number),
-          sleep: expect.any(Number),
-          knowledge: expect.any(Number),
-          teacher: { 
-            _id: expect.any(String), 
-            username: expect.any(String) } 
-        });
+          .set('Authorization', `Bearer ${getToken()}`)
+          .then(res => {
+            expect(res.body).toEqual({
+              _id: foundCohort._id,
+              stress: expect.any(Number),
+              sleep: expect.any(Number),
+              assignments: expect.any(Array),
+              knowledge: expect.any(Number),
+              teacher: { 
+                _id: expect.any(String), 
+                username: expect.any(String) } 
+            });
+            expect(res.body.assignments).toContainEqual({
+              cohortId: expect.any(String),
+              name: expect.any(String),
+              difficulty: expect.any(String),
+              travis: expect.any(Boolean)
+            });
+          });
       });
   });
   
