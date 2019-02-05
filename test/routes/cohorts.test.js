@@ -67,4 +67,18 @@ describe('cohorts', () => {
         });
       });
   });
+  
+  it('can update a cohort', () => {
+    return getCohort()
+      .then(cohort => {
+        return request(app)
+          .patch(`/cohorts/${cohort._id}`)
+          .set('Authorization', `Bearer ${getToken()}`)
+          .send({ sleep: 0, knowledge: 50, stress: 6 });
+      })
+      .then(res => {
+        console.log('res', res.body);
+        expect(res.body).toEqual('kate and drunk teonna');
+      });
+  });
 });
