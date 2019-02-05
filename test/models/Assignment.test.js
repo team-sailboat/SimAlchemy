@@ -11,14 +11,14 @@ describe('Assignment Model', () => {
       cohortId: cohort._id,
       name: 'lab',
       difficulty: 'hard',
-      travis: false
+      travis: 50
     });
     expect(assignment.toJSON()).toEqual({
       _id: expect.any(Object),
       cohortId: expect.any(mongoose.Types.ObjectId),
       name: 'lab',
       difficulty: 'hard',
-      travis: false
+      travis: 50
     });
   });
 
