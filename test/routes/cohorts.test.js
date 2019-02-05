@@ -1,8 +1,28 @@
-// require('dotenv').config();
-// require('../../lib/utils/connect')();
-// const mongoose = require('mongoose');
-// const request = require('supertest');
-// const app = require('../../lib/app');
-// const Cohort = require('../../lib/models/Cohort');
+const request = require('supertest');
+const app = require('../../lib/app');
+const { getTeacher } = require('../dataHelpers');
 
-
+describe('cohorts', () => {
+  it('can post a cohort', () => {
+    return getTeacher()
+      .then(teacher => {
+        return request(app)
+          .post('/cohorts')
+          .send({
+            teacher: teacher._id,
+            stress: 100,
+            sleep: 0,
+            knowledge: 6
+          });
+      }).then(res => {
+        console.log(res.body);
+        expect(res.body).toEqual({
+          teacher: expect.any(String),
+          stress: 100,
+          sleep: 0,
+          knowledge: 6,
+          _id: expect.any(String)
+        });
+      });
+  });
+});
