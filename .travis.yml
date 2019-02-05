@@ -2,4 +2,4 @@ language: node_js
 node_js: "node"
 
 services: mongodb
-env: MONGODB_URI=mongodb://127.0.0.1:27017/tardygram AUTH_SECRET=SuperSecretSecret
+env: MONGODB_URI=mongodb://127.0.0.1:27017/SimAlchemy AUTH_SECRET=SuperSecretSecret
