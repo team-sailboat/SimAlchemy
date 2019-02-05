@@ -77,7 +77,6 @@ describe('cohorts', () => {
           .send({ sleep: 0, knowledge: 50, stress: 6 });
       })
       .then(res => {
-        console.log('res', res.body);
         expect(res.body).toEqual({ stress: 6,
           sleep: 0,
           knowledge: 50,
