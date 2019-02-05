@@ -21,14 +21,21 @@ const cohortPost = (id) => {
             const { stress, sleep, knowledge } = res.body;
             return inquirer.prompt([
               {
-                type: 'confirm',
+                type: 'list',
                 name: 'continue',
                 message: `Here are your cohorts stats: 
                 stress: ${stress},
                 sleep: ${sleep},
-                knowledge: ${knowledge}`
+                knowledge: ${knowledge}`,
+                choices: [{
+                  name: 'continue',
+                  value: 'continue'
+                }]
               }
-            ]);
+            ])
+              .then(() => {
+                return console.log('continue!!!!');
+              });
           });
       }
     });
