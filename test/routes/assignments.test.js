@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../../lib/app');
-const { getToken, getCohort, getAssignments } = require('../dataHelpers');
+const { getToken, getCohort } = require('../dataHelpers');
 
 describe('assignments', () => {
 
@@ -30,13 +30,12 @@ describe('assignments', () => {
   });
 
   it('can get a list of assignments', () => {
-    return getAssignments()
-      .then(() => {
-        return request(app)
-          .get('/assignments')
-          .then(res => {
-            expect(res.body).toHaveLength(30);
-          });
+    return request(app)
+      .get('/assignments')
+      .then(res => {
+        console.log(res.body); 
+        expect(res.body).toHaveLength(18);
       });
   });
+
 });
