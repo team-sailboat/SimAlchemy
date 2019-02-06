@@ -45,7 +45,7 @@ const welcomeStats = (token, id) => {
                   }
                 ])
                   .then(() => {
-                    return assignmentPost(id);
+                    return assignmentPost(body._id);
                   });
 
               });

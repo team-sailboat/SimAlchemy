@@ -4,9 +4,7 @@ const inquirer = require('inquirer');
 const { getToken } = require('../helper/tokens');
 const updateStats = require('./updateStats');
 
-
 const assignmentPost = id => {
- 
   return inquirer.prompt([
     {
       type: 'list',
@@ -71,7 +69,8 @@ const assignmentPost = id => {
               travis
             })
             .then(() => {
-              return updateStats(id, difficulty);
+              console.log(id);
+              return updateStats(id);
             });
         });
     });
