@@ -49,7 +49,7 @@ module.exports = () => {
             })
             .then(({ body }) => {
               return welcomeStats(body._id);
-            });
+            }); 
         });
     });
 
