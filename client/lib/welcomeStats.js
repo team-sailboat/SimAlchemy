@@ -2,10 +2,9 @@
 const config = require('../config');
 const request = require('superagent');
 const inquirer = require('inquirer');
-const { getToken } = require('../helper/tokens');
 const assignmentPost = require('./assignment');
 
-const welcomeStats = (id) => {
+const welcomeStats = (token, id) => {
   return inquirer.prompt([
     {
       type: 'confirm',
@@ -15,27 +14,40 @@ const welcomeStats = (id) => {
   ])
     .then(welcome => {
       if(welcome) {
+        let stress, sleep, knowledge;
         return request
-          .get(`${config.url}/cohorts/${id}`)
-          .set('Authorization', `Bearer ${getToken()}`)
-          .then(res => {
-            const { stress, sleep, knowledge } = res.body;
-            return inquirer.prompt([
-              {
-                type: 'list',
-                name: 'continue',
-                message: `Here are your cohorts stats: 
-                stress: ${stress},
-                sleep: ${sleep},
-                knowledge: ${knowledge}`,
-                choices: [{
-                  name: 'continue',
-                  value: 'continue'
-                }]
-              }
-            ])
-              .then(() => {
-                return assignmentPost(id);
+          .post(`${config.url}/cohorts`)
+          .set('Authorization', `Bearer ${token}`)
+          .send({
+            teacher: id,
+            stress,
+            sleep,
+            knowledge
+          })
+          .then(({ body }) => {
+            return request
+              .get(`${config.url}/cohorts/${body._id}`)
+              .set('Authorization', `Bearer ${token}`)
+              .then(res => {
+                const { stress, sleep, knowledge } = res.body;
+                return inquirer.prompt([
+                  {
+                    type: 'list',
+                    name: 'continue',
+                    message: `Here are your cohorts stats: 
+                    stress: ${stress},
+                    sleep: ${sleep},
+                    knowledge: ${knowledge}`,
+                    choices: [{
+                      name: 'continue',
+                      value: 'continue'
+                    }]
+                  }
+                ])
+                  .then(() => {
+                    return assignmentPost(body._id);
+                  });
+
               });
           });
       }

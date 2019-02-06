@@ -34,25 +34,10 @@ module.exports = () => {
     .then(res => {
       return Promise.all([
         setToken(res.body.token),
-        res.body.teacher._id
+        res.body.teacher._id,
       ])
         .then(([token, id]) => {
-          let stress, sleep, knowledge;
-          return request
-            .post(`${config.url}/cohorts`)
-            .set('Authorization', `Bearer ${token}`)
-            .send({
-              teacher: id,
-              stress,
-              sleep,
-              knowledge
-            })
-            .then(({ body }) => {
-              return welcomeStats(body._id);
-            }); 
+          return welcomeStats(token, id);
         });
     });
-
 };
-
-
