@@ -56,12 +56,5 @@ const updateStats = (id, difficulty) => {
           ]);
         });
     });
-  // return inquirer.prompt([
-  //   {
-  //     type:'list',
-  //     name: 'continue',
-  //     message: 'Here are your updated stats'
-  //   }
-  // ]);
 };
 module.exports = updateStats;
