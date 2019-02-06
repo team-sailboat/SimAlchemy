@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const welcomeStats = require('./welcomeStats');
+const previousCohorts = require('./previousCohorts');
 
 const menu = (token, teacher) => {
   return inquirer.prompt([
@@ -22,6 +23,9 @@ const menu = (token, teacher) => {
     .then(choice => {
       if(choice.menu === 'game') {
         return welcomeStats(token, teacher._id);
+      } else {
+        console.log(choice);
+        return previousCohorts(teacher._id);
       }
     });
 };
