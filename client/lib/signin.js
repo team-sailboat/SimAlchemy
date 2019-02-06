@@ -4,8 +4,7 @@ const config = require('../config');
 const inquirer = require('inquirer');
 const request = require('superagent');
 const { setToken } = require('../helper/tokens');
-// const Cohort = require('../../lib/models/Cohort');
-// const app = require('../../lib/app');
+const welcomeStats = require('./welcomeStats');
 
 module.exports = () => {
   return inquirer.prompt([
@@ -38,6 +37,7 @@ module.exports = () => {
         res.body.foundTeacher
       ])
         .then(([token, foundTeacher]) => {
+          console.log('token', token);
           return inquirer.prompt([
             {
               type: 'list',
@@ -55,7 +55,11 @@ module.exports = () => {
               ]
             }
           ])
-            .then(console.log);
+            .then(choice => {
+              if(choice === 'game') {
+                return welcomeStats(foundTeacher._id);
+              }
+            });
         });
     });
     
