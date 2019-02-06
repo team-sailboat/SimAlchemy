@@ -24,7 +24,6 @@ const menu = (token, teacher) => {
       if(choice.menu === 'game') {
         return welcomeStats(token, teacher._id);
       } else {
-        console.log(choice);
         return previousCohorts(teacher._id);
       }
     });
