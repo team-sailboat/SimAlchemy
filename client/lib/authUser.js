@@ -11,7 +11,7 @@ console.log(figlet.textSync('SimAlchemy\r', {
 }));
 
 
-const select = () => {
+const authUser = () => {
   return inquirer.prompt([
     {
       type: 'list',
@@ -41,4 +41,4 @@ const select = () => {
     });   
 };
 
-module.exports = select;
+module.exports = authUser;

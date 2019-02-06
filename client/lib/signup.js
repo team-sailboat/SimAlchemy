@@ -4,6 +4,7 @@ const config = require('../config');
 const inquirer = require('inquirer');
 const request = require('superagent');
 const { setToken } = require('../helper/tokens');
+const welcomeStats = require('./welcomeStats');
 
 module.exports = () => {
   return inquirer.prompt([
@@ -31,7 +32,25 @@ module.exports = () => {
         .send({ username, password });
     })
     .then(res => {
-      setToken(res.body.token);
+      return Promise.all([
+        setToken(res.body.token),
+        res.body.teacher._id
+      ])
+        .then(([token, id]) => {
+          let stress, sleep, knowledge;
+          return request
+            .post(`${config.url}/cohorts`)
+            .set('Authorization', `Bearer ${token}`)
+            .send({
+              teacher: id,
+              stress,
+              sleep,
+              knowledge
+            })
+            .then(({ body }) => {
+              return welcomeStats(body._id);
+            });
+        });
     });
 
 };

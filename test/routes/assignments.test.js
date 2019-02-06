@@ -14,7 +14,7 @@ describe('assignments', () => {
             cohortId: cohort._id,
             name: 'lab',
             difficulty: 'hard',
-            travis: 'true'
+            travis: 50
           });
       })
       .then(res => {
@@ -23,7 +23,7 @@ describe('assignments', () => {
           cohortId: expect.any(String),
           name: 'lab',
           difficulty: 'hard',
-          travis: true,
+          travis: 50,
           __v: 0
         });
       });
@@ -47,7 +47,7 @@ describe('assignments', () => {
               cohortId: expect.any(String),
               difficulty: expect.any(String),
               name: expect.any(String),
-              travis: expect.any(Boolean)
+              travis: expect.any(Number)
             });
           });
       });

@@ -1,4 +1,4 @@
 /*eslint-disable no-console*/
-const selection = require('./lib/select');
+const authUser = require('./lib/authUser');
 
-selection();
+authUser();
