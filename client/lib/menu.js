@@ -24,7 +24,7 @@ const menu = (token, teacher) => {
       if(choice.menu === 'game') {
         return welcomeStats(token, teacher._id);
       } else {
-        return previousCohorts(teacher._id);
+        return previousCohorts(token, teacher);
       }
     });
 };
