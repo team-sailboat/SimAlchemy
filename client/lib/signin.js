@@ -41,14 +41,21 @@ module.exports = () => {
           return inquirer.prompt([
             {
               type: 'list',
-              name: 'login menu',
-              message: `Welcome back ${foundTeacher.username}`,
-              choices: [{
-                name: 'banana',
-                value: 'banana'
-              }]
+              name: 'menu',
+              message: `Welcome back ${foundTeacher.username} to SimAlchemy! What would you like to do today?`,
+              choices: [
+                {
+                  name: 'View previous cohorts',
+                  value: 'cohort'
+                },
+                {
+                  name: 'Start a new game',
+                  value: 'game'
+                }
+              ]
             }
-          ]);
+          ])
+            .then(console.log);
         });
     });
     
