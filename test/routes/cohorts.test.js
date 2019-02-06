@@ -25,7 +25,7 @@ describe('cohorts', () => {
           .then(res => {
             expect(res.body).toEqual({
               teacher: expect.any(String),
-              stress: 0,
+              stress: 25,
               sleep: 100,
               knowledge: 25,
               _id: expect.any(String),
