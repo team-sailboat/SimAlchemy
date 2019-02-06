@@ -38,20 +38,8 @@ module.exports = () => {
         res.body.foundTeacher._id
       ]);
       // .then(([token, id]) => {
-      //   console.log('BIGOBJECT', Cohort
-      //     .find({ teacher: id })
-      //     .lean());
-      //   return Cohort
-      //     .find({ teacher: id })
-      //     // .populate('teacher', { username: true })
-      //     .then(res => {
-      //       console.log('body', res.body);
-      //     });
-      // return request
-      //   .get(`${config.url}/cohorts`)
-      //   .set('Authorization', `Bearer ${token}`);
-
-    //     });
+          
+      // });
     });
     
 
