@@ -35,11 +35,21 @@ module.exports = () => {
     .then(res => {
       return Promise.all([
         setToken(res.body.token),
-        res.body.foundTeacher._id
-      ]);
-      // .then(([token, id]) => {
-          
-      // });
+        res.body.foundTeacher
+      ])
+        .then(([token, foundTeacher]) => {
+          return inquirer.prompt([
+            {
+              type: 'list',
+              name: 'login menu',
+              message: `Welcome back ${foundTeacher.username}`,
+              choices: [{
+                name: 'banana',
+                value: 'banana'
+              }]
+            }
+          ]);
+        });
     });
     
 
