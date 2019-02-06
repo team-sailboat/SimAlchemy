@@ -3,6 +3,7 @@ const welcomeStats = require('./welcomeStats');
 const previousCohorts = require('./previousCohorts');
 
 const menu = (token, teacher) => {
+  console.log('calledmenu');
   return inquirer.prompt([
     {
       type: 'list',

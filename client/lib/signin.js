@@ -2,7 +2,7 @@
 const config = require('../config');
 const inquirer = require('inquirer');
 const request = require('superagent');
-const { setToken } = require('../helper/tokens');
+const { setToken, setTeach } = require('../helper/tokens');
 const menu = require('./menu');
 
 module.exports = () => {
@@ -33,7 +33,7 @@ module.exports = () => {
     .then(res => {
       return Promise.all([
         setToken(res.body.token),
-        res.body.foundTeacher
+        setTeach(res.body.foundTeacher)
       ])
         .then(([token, foundTeacher]) => {
           return menu(token, foundTeacher);
