@@ -37,7 +37,6 @@ module.exports = () => {
         res.body.foundTeacher
       ])
         .then(([token, foundTeacher]) => {
-          console.log('token', token);
           return inquirer.prompt([
             {
               type: 'list',
@@ -56,8 +55,13 @@ module.exports = () => {
             }
           ])
             .then(choice => {
-              if(choice === 'game') {
-                return welcomeStats(foundTeacher._id);
+              
+              if(choice.menu === 'game') {
+                console.log('token', token);
+                console.log('fT', foundTeacher._id);
+                return welcomeStats(token, 
+                  foundTeacher._id);
+
               }
             });
         });
