@@ -24,7 +24,7 @@ module.exports = ({
       return Promise.all([...Array(totalCohorts)].map(() => {
         return Cohort.create({
           teacher: chance.pickone(teachers)._id,
-          stress: chance.integer({ min: 0, max: 100 }),
+          stress: chance.integer({ min: 0, max: 10 }),
           sleep: chance.integer({ min: 0, max: 100 }),
           knowledge: chance.integer({ min: 0, max: 100 })
         });
