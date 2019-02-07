@@ -3,7 +3,7 @@
 const config = require('../config');
 const inquirer = require('inquirer');
 const request = require('superagent');
-const { setToken } = require('../helper/tokens');
+const { setToken, setTeach } = require('../helper/tokens');
 const welcomeStats = require('./welcomeStats');
 
 module.exports = () => {
@@ -34,25 +34,10 @@ module.exports = () => {
     .then(res => {
       return Promise.all([
         setToken(res.body.token),
-        res.body.teacher._id
+        setTeach(res.body.teacher)
       ])
-        .then(([token, id]) => {
-          let stress, sleep, knowledge;
-          return request
-            .post(`${config.url}/cohorts`)
-            .set('Authorization', `Bearer ${token}`)
-            .send({
-              teacher: id,
-              stress,
-              sleep,
-              knowledge
-            })
-            .then(({ body }) => {
-              return welcomeStats(body._id);
-            });
+        .then(([token, teacher]) => {
+          return welcomeStats(token, teacher._id);
         });
     });
-
 };
-
-

@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+body {
+  font-family: 'Permanent Marker', cursive;
+  background: black no-repeat center center fixed;
+
+}
+
+div {
+  width: 100%;
+  position: absolute;
+  font-family: 'Permanent Marker', cursive;
+  background: url('./white-board-background-5.jpg') no-repeat center center;
+  height: 616px;
+  margin: 0 auto;
+}
+
+h1 {
+  position: absolute;
+  font-size: 6em;
+  text-align: center;
+  width: 50%;
+  /* margin: 0 auto; */
+  margin-top: 0%;
+  margin-left: 24%;
+}
+
+main {
+  position: absolute;
+  top: 22%;
+  left: 0%;
+  width: 100%;
+}
+
+h2 {
+  width: 50%;
+  margin: 2em auto;
+}
+
+h3 {
+  position: absolute;
+  font-size: 1.5em;
+  left: 40%;
+  bottom: 86%;
+  color: red;
+  width: 100%;
+}
+
+.marker {
+  position: absolute;
+  left: 38%;
+  top: .5em;
+  display: inline-block;
+  margin-right: 0;
+}
+
+aside {
+  position: absolute;
+  top: 76%;
+  left: 20%;
+  font-size: 20px;
+  margin: 2em auto;
+}
+
+.sailboat {
+  margin: 5%;
+}
+
+img {
+  float: left;
+  margin-right: 160px;
+}
+
+p {
+  margin-left: 17em;
+  font-size: 25px;
+  width: 40%;
+  margin-top: 2em;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(55, 116, 248);
+  transition: width 1s;
+}
+
+a:hover {
+  width: 155px;
+}
+
+span {
+  color: rgb(55, 231, 158);
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: white;
+  }
+
+  div {
+    background: white;
+  }
+
+  h1 {
+    width: 94%;
+    font-size: 4em;
+  }
+
+  h2 {
+    width: 97%;
+  }
+
+  aside {
+    left: 0;
+    font-size: 25px;
+    margin-top: 0em;
+  }
+
+  img {
+    width: 140px;
+    margin-right: 17px;
+  }
+
+  p {
+    margin-left: 42%;
+    font-size: 25px;
+    width: 50%;
+    margin-top: 2em;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  div {
+    width: 100%;
+    position: absolute;
+  }
+
+  h1 {
+    position: absolute;
+    margin-left: 24%;
+  }
+
+  main {
+    position: absolute;
+    left: 5%;
+    width: 100%;
+  }
+
+  h2 {
+    width: 50%;
+  }
+
+  aside {
+    margin: 2em auto;
+  }
+
+  .sailboat {
+    margin-left: 5%;
+  }
+
+  p {
+    margin-top: 2em;
+    width: 30%;
+  }
+}
+
+
