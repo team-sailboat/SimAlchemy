@@ -5,12 +5,13 @@ const signup = require('./signup');
 const figlet = require('figlet');
 const menu = require('./menu');
 const { getToken, getTeach } = require('../helper/tokens');
+const chalk = require('chalk');
 
-console.log(figlet.textSync('SimAlchemy\r', {
+console.log(chalk.rgb(0, 128, 128)(figlet.textSync('SimAlchemy\r', {
   // font: 'chunky',
   horizontalLayout: 'default',
   verticalLayout: 'default'
-}));
+})));
 
 const authUser = () => {
   return inquirer.prompt([

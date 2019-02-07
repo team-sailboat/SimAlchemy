@@ -29,13 +29,12 @@ const gameOver = (id) => {
         }
       ]);
     }).then(() => {
-      console.log(figlet.textSync('GAME OVER', {
+      console.log(chalk.rgb(255, 0, 0)(figlet.textSync('GAME OVER', {
         font: 'weird',
         horizontalLayout: 'default',
         verticalLayout: 'default'
-      }));
+      })));
       process.exit();
-      // return menu(getToken(), getTeach());
     });
 };
 
