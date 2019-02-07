@@ -12,7 +12,6 @@ const assignmentPost = id => {
         {
           type: 'list',
           name: 'assignment',
-          // message: 'It\'s time to post your first assignment. Choose an assignment:',
           message: `${msg}`,
           choices: [{ 
             name: 'lab',
