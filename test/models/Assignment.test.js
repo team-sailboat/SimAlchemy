@@ -6,20 +6,23 @@ describe('Assignment Model', () => {
 
   it('validates a good model', async() => {
     const teacher = await getTeacher();
-    const cohort = await getCohort({ teacher: teacher._id });
-    const assignment = await new Assignment({
-      cohortId: cohort._id,
-      name: 'lab',
-      difficulty: 'hard',
-      travis: 50
-    });
-    expect(assignment.toJSON()).toEqual({
-      _id: expect.any(Object),
-      cohortId: expect.any(mongoose.Types.ObjectId),
-      name: 'lab',
-      difficulty: 'hard',
-      travis: 50
-    });
+    await getCohort({ teacher: teacher._id })
+      .then(cohort => {
+        const assignment = new Assignment({
+          cohortId: cohort._id,
+          name: 'lab',
+          difficulty: 'hard',
+          travis: 50
+        });
+        expect(assignment.toJSON()).toEqual({
+          _id: expect.any(Object),
+          cohortId: expect.any(mongoose.Types.ObjectId),
+          name: 'lab',
+          difficulty: 'hard',
+          travis: 50
+        });
+
+      });
   });
 
 });
