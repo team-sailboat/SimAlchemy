@@ -1,3 +1,4 @@
+/*eslint-disable no-console*/
 const config = require('../config');
 const request = require('superagent');
 const inquirer = require('inquirer');
@@ -15,11 +16,16 @@ const updateStats = (id) => {
           .set('Authorization', `Bearer ${getToken()}`)
           .then(res => {
             const { stress, sleep, knowledge } = res.body;
-            if(sleep <= 50 && stress >= 50) {
-              console.log(chalk.red('\rYou done goof\'d'));
+            if(sleep <= 10 && stress >= 90) {
+              console.log(chalk.red('You done goof\'d'));
               return gameOver(id);
-            } else if(stress >= 100) {
-              console.log(chalk.red('\rYou done goof\'d, your cohort got 2 stressed'));
+            } 
+            else if(stress >= 100) {
+              console.log(chalk.red('You done goof\'d, your cohort got 2 stressed'));
+              return gameOver(id);
+            } 
+            else if(knowledge > 100) {
+              console.log(chalk.green('YOUR COHORT IS SO SMART. YOU WIN'));
               return gameOver(id);
             }
             return inquirer.prompt([
