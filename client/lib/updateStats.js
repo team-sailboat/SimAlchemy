@@ -24,7 +24,7 @@ const updateStats = (id) => {
                 message: `Here are your updated Cohort stats:
                   stress: ${stress},
                   sleep: ${sleep},
-                  knowledge: ${knowledge}`,
+                  knowledge: ${knowledge}\r`,
                 choices: [{
                   name: 'continue',
                   value: 'continue'

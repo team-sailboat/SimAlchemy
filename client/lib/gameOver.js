@@ -23,13 +23,13 @@ const gameOver = (id) => {
                   sleep: ${sleep},
                   knowledge: ${knowledge}`,
           choices: [{
-            name: 'Return to menu',
-            value: 'menu'
+            name: 'Thanks for playing!',
+            // value: 'menu'
           }]
         }
       ]);
     }).then(() => {
-      console.log(figlet.textSync('GAME OVER\r', {
+      console.log(figlet.textSync('GAME OVER', {
         font: 'weird',
         horizontalLayout: 'default',
         verticalLayout: 'default'

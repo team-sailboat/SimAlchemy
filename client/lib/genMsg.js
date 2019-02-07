@@ -1,6 +1,7 @@
 const config = require('../config');
 const request = require('superagent');
 const { getToken } = require('../helper/tokens');
+const figlet = require('figlet');
 
 const genMsg = id => {
   return request
@@ -9,6 +10,11 @@ const genMsg = id => {
     .then(res => {
       const { stress, sleep, knowledge } = res.body;
       if(stress === 25 && sleep === 100) {
+        console.log(figlet.textSync('Wow!', {
+          font: 'chunky',
+          horizontalLayout: 'default',
+          verticalLayout: 'default'
+        }));
         return 'It\'s time to post your first assignment. Choose an assignment:';
       }
       else if((stress > 25 && stress <= 30) && (sleep >= 90 && sleep < 100)) {
