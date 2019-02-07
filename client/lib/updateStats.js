@@ -13,6 +13,9 @@ const updateStats = (id) => {
           .set('Authorization', `Bearer ${getToken()}`)
           .then(res => {
             const { stress, sleep, knowledge } = res.body;
+            if(sleep <= 0 && stress >= 100) {
+              console.log('game over you died');
+            }
             return inquirer.prompt([
               {
                 type: 'list',
@@ -30,7 +33,7 @@ const updateStats = (id) => {
           });
       }
       else {
-        console.log('game over');
+        console.log('game over, 5 assignments complete');
       }
     });
 

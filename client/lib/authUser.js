@@ -36,9 +36,10 @@ const authUser = () => {
       }
     })
     .catch(error => {
-      console.log(error.response.body.error);
+      // console.log(error.response.body.error);
+      console.log(error);
       signin();
-    });   
+    });
 };
 
 module.exports = authUser;
