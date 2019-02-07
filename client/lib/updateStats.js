@@ -4,6 +4,8 @@ const inquirer = require('inquirer');
 const { getToken } = require('../helper/tokens');
 const checkAssignLength = require('../lib/checkAssignLength');
 const gameOver = require('./gameOver');
+const figlet = require('figlet');
+const chalk = require('chalk');
 
 const updateStats = (id) => {
   return checkAssignLength(id)
@@ -14,8 +16,14 @@ const updateStats = (id) => {
           .set('Authorization', `Bearer ${getToken()}`)
           .then(res => {
             const { stress, sleep, knowledge } = res.body;
-            if(sleep <= 0 && stress >= 100) {
-              console.log('game over you died');
+            if(sleep <= 50 && stress >= 50) {
+              console.log(chalk.red('You done goof\'d'));
+              console.log(figlet.textSync('GAME OVER', {
+                font: 'weird',
+                horizontalLayout: 'default',
+                verticalLayout: 'default'
+              }));
+              process.exit();
             }
             return inquirer.prompt([
               {
