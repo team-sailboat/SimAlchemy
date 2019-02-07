@@ -7,37 +7,49 @@ body {
 }
 
 div {
+  width: 100%;
+  position: absolute;
   font-family: 'Permanent Marker', cursive;
   background: url('./white-board-background-5.jpg') no-repeat center center;
-  height: 100vh;
+  height: 616px;
   margin: 0 auto;
 }
 
 h1 {
+  position: absolute;
   font-size: 6em;
   text-align: center;
   width: 50%;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  margin-top: 0%;
+  margin-left: 24%;
 }
 
 main {
   position: absolute;
-  top: 30%;
+  top: 22%;
+  left: 0%;
+  width: 100%;
 }
 
 h2 {
-  width: 65%;
+  width: 50%;
   margin: 2em auto;
 }
 
 h3 {
+  position: absolute;
   font-size: 1.5em;
+  left: 40%;
+  bottom: 86%;
   color: red;
   width: 100%;
-  margin: 0 auto;
 }
 
 .marker {
+  position: absolute;
+  left: 38%;
+  top: .5em;
   display: inline-block;
   margin-right: 0;
 }
@@ -47,7 +59,11 @@ aside {
   top: 76%;
   left: 20%;
   font-size: 20px;
-  margin: 0 auto;
+  margin: 2em auto;
+}
+
+.sailboat {
+  margin: 5%;
 }
 
 img {
@@ -56,9 +72,9 @@ img {
 }
 
 p {
-  margin-left: 15em;
+  margin-left: 17em;
   font-size: 25px;
-  width: 78%;
+  width: 40%;
   margin-top: 2em;
 }
 
@@ -114,7 +130,7 @@ span {
   }
 }
 
-@media only screen and (min-width: 1086px) {
+@media only screen and (min-width: 1300px) {
   div {
     width: 100%;
     position: absolute;
@@ -122,7 +138,6 @@ span {
 
   h1 {
     position: absolute;
-    margin-top: 10%;
     margin-left: 24%;
   }
 
@@ -146,7 +161,7 @@ span {
 
   p {
     margin-top: 2em;
-    width: 40%;
+    width: 30%;
   }
 }
 
