@@ -4,7 +4,6 @@ const inquirer = require('inquirer');
 const { getToken } = require('../helper/tokens');
 const checkAssignLength = require('../lib/checkAssignLength');
 const gameOver = require('./gameOver');
-const figlet = require('figlet');
 const chalk = require('chalk');
 
 const updateStats = (id) => {
@@ -18,12 +17,10 @@ const updateStats = (id) => {
             const { stress, sleep, knowledge } = res.body;
             if(sleep <= 50 && stress >= 50) {
               console.log(chalk.red('You done goof\'d'));
-              console.log(figlet.textSync('GAME OVER', {
-                font: 'weird',
-                horizontalLayout: 'default',
-                verticalLayout: 'default'
-              }));
-              process.exit();
+              return gameOver(id);
+            } else if(stress >= 100) {
+              console.log(chalk.red('You done goof\'d, your cohort got 2 stressed'));
+              return gameOver(id);
             }
             return inquirer.prompt([
               {

@@ -23,7 +23,8 @@ const gameOver = (id) => {
                   sleep: ${sleep},
                   knowledge: ${knowledge}`,
           choices: [{
-            name: 'Thanks for playing!',
+            // name: 'Thanks for playing!',
+            name: '༼ つ ಥ_ಥ ༽つ',
             // value: 'menu'
           }]
         }
