@@ -40,9 +40,10 @@ const authUser = () => {
       return menu(getToken(), getTeach());
     })
     .catch(error => {
-      console.log(error.response.body.error);
+      // console.log(error.response.body.error);
+      console.log(error);
       signin();
-    });   
+    });
 };
 
 module.exports = authUser;
