@@ -16,8 +16,9 @@ body {
 
 div {
   font-family: 'Permanent Marker', cursive;
-  background: url('./white-board-background-5.jpg') no-repeat center center fixed;
+  background: url('./white-board-background-5.jpg') no-repeat center center;
   height: 100vh;
+  margin: 0 auto;
 }
 
 
