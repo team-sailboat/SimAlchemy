@@ -3,7 +3,6 @@ const app = require('../../lib/app');
 const { getToken, getCohort, getAssignment } = require('../dataHelpers');
 
 describe('assignments', () => {
-
   it('can post an assignment', () => {
     return getCohort()
       .then(cohort => {
@@ -52,5 +51,4 @@ describe('assignments', () => {
           });
       });
   });
-
 });

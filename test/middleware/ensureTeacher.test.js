@@ -8,10 +8,12 @@ describe('ensureTeacher', () => {
       get: () => 'Bearer abcd123'
     };
     const next = jest.fn();
+    
     bearerToken(req, {}, next);
     expect(req.token).toEqual('abcd123');
     expect(next).toHaveBeenCalled();
   });
+
   it('can ensure a token is authorized', () => {
     const token = tokenize({ username: 'cari420' });
     const req = { token };

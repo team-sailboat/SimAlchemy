@@ -1,11 +1,6 @@
 const request = require('supertest');
 const app = require('../../lib/app');
-const {
-  getTeacher,
-  getToken,
-  getCohorts,
-  getCohort
-} = require('../dataHelpers');
+const { getTeacher, getToken, getCohorts, getCohort } = require('../dataHelpers');
 
 describe('cohorts', () => {
   it('can post a cohort', () => {
