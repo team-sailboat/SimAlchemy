@@ -16,3 +16,26 @@ h2 {
   width: 50%;
   margin: 1em auto;
 }
+
+h3 {
+  font-size: 1.5em;
+  color: red;
+}
+
+aside {
+  width: 25%;
+  margin: 1em auto;
+}
+
+p {
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(55, 116, 248);
+}
+
+span {
+  color: rgb(55, 231, 158);
+}
