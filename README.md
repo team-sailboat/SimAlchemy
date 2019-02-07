@@ -21,7 +21,7 @@ Node.js, [MongoDB](https://www.mongodb.com/what-is-mongodb), [Express](https://w
 `npm run start` (start node server)\
 `npm run start:watch` (start nodemon server)\
 `npm run seed` (seed database)\
-`npm run client` (start command line game)\
+`npm run play` (start command line game)\
 `npm run drop` (drop MongoDB)\
 `npm run db-load-all` (drop db and load seed data from scratch)
 
