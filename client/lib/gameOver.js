@@ -1,8 +1,12 @@
 const config = require('../config');
 const request = require('superagent');
 const inquirer = require('inquirer');
-const { getToken, getTeach } = require('../helper/tokens');
-const menu = require('./menu');
+const {
+  getToken,
+  // getTeach
+} = require('../helper/tokens');
+// const menu = require('./menu');
+const figlet = require('figlet');
 
 const gameOver = (id) => {
   return request
@@ -25,7 +29,13 @@ const gameOver = (id) => {
         }
       ]);
     }).then(() => {
-      return menu(getToken(), getTeach());
+      console.log(figlet.textSync('GAME OVER\r', {
+        font: 'weird',
+        horizontalLayout: 'default',
+        verticalLayout: 'default'
+      }));
+      process.exit();
+      // return menu(getToken(), getTeach());
     });
 };
 

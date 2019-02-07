@@ -34,7 +34,7 @@ const updateStats = (id) => {
           });
       }
       else {
-        console.log('game over, 5 assignments complete');
+        // console.log('game over, 5 assignments complete');
         return gameOver(id);
       }
     });
