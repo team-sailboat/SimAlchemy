@@ -3,6 +3,7 @@ const config = require('../config');
 const request = require('superagent');
 const inquirer = require('inquirer');
 const assignmentPost = require('./assignment');
+const chalk = require('chalk');
 
 const welcomeStats = (token, id) => {
   return inquirer.prompt([
@@ -47,7 +48,7 @@ const welcomeStats = (token, id) => {
                   {
                     type: 'list',
                     name: 'continue',
-                    message: `Here are your cohorts stats: stress: ${stress}, sleep: ${sleep}, knowledge: ${knowledge}`,
+                    message: 'Here are your cohorts stats: ' + chalk.rgb(155, 155, 155).inverse(`stress: ${stress}, sleep: ${sleep}, knowledge: ${knowledge}`),
                     choices: [{
                       name: 'continue',
                       value: 'continue'
