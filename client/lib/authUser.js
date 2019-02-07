@@ -8,7 +8,7 @@ const { getToken, getTeach } = require('../helper/tokens');
 const gradient = require('gradient-string');
 
 console.log(gradient.cristal(figlet.textSync('SimAlchemy\r', {
-  // font: 'chunky',
+  font: 'slant',
   horizontalLayout: 'default',
   verticalLayout: 'default'
 })));

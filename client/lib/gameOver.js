@@ -4,6 +4,8 @@ const inquirer = require('inquirer');
 const { getToken } = require('../helper/tokens');
 const figlet = require('figlet');
 const chalk = require('chalk');
+const gradient = require('gradient-string');
+
 
 const gameOver = (id) => {
   return Promise.all([
@@ -29,7 +31,7 @@ const gameOver = (id) => {
         }
       ]);
     }).then(() => {
-      console.log(chalk.rgb(255, 0, 0)(figlet.textSync('GAME OVER', {
+      console.log(gradient.morning(figlet.textSync('GAME OVER', {
         font: 'weird',
         horizontalLayout: 'default',
         verticalLayout: 'default'
