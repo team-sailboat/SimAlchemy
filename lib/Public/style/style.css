@@ -3,6 +3,7 @@
 body {
   font-family: 'Permanent Marker', cursive;
   background: black no-repeat center center fixed;
+
 }
 
 div {
@@ -11,7 +12,6 @@ div {
   height: 100vh;
   margin: 0 auto;
 }
-
 
 h1 {
   font-size: 6em;
@@ -67,3 +67,42 @@ a:hover {
 span {
   color: rgb(55, 231, 158);
 }
+
+@media only screen and (max-width : 600px) {
+  body {
+    background-color: white;
+  }
+
+  div {
+    background: white;
+  }
+
+  h1 {
+    width: 94%;
+    font-size: 4em;
+  }
+
+  h2 {
+    width: 97%;
+  }
+
+  aside {
+    left: 0;
+    font-size: 25px;
+    margin-top: 0em;
+  }
+
+  img {
+    width: 140px;
+    margin-right: 17px;
+  }
+
+  p {
+    margin: 30px auto;
+    font-size: 33px;  
+}
+  
+
+
+}
+
