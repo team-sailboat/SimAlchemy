@@ -3,6 +3,7 @@ const request = require('superagent');
 const inquirer = require('inquirer');
 const { getToken } = require('../helper/tokens');
 const checkAssignLength = require('../lib/checkAssignLength');
+const gameOver = require('./gameOver');
 
 const updateStats = (id) => {
   return checkAssignLength(id)
@@ -34,6 +35,7 @@ const updateStats = (id) => {
       }
       else {
         console.log('game over, 5 assignments complete');
+        return gameOver(id);
       }
     });
 
