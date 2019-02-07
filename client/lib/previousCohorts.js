@@ -19,7 +19,7 @@ const previousCohorts = (token, teacher) => {
         {
           type: 'list',
           name: 'results',
-          message: `\rHere are your previous cohorts:\n${prevCohorts.join('\n')}`,
+          message: `Here are your previous cohorts:\n${prevCohorts.join('\n')}`,
           choices: ['Go back']
         }
       ])

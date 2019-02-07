@@ -9,7 +9,7 @@ const welcomeStats = (token, id) => {
     {
       type: 'list',
       name: 'welcome',
-      message: '\rCongrats, you’re hired! You’re an instructor at SimAlchemy and it’s the first day of class. Your job is to help your cohort survive by keeping their stress low and increasing their knowledge. Are you ready to begin?',
+      message: 'Congrats, you’re hired! You’re an instructor at SimAlchemy and it’s the first day of class. Your job is to help your cohort survive by keeping their stress low and increasing their knowledge. Are you ready to begin?',
       choices: [
         {
           name: 'YES',
@@ -47,7 +47,7 @@ const welcomeStats = (token, id) => {
                   {
                     type: 'list',
                     name: 'continue',
-                    message: `\rHere are your cohorts stats: stress: ${stress}, sleep: ${sleep}, knowledge: ${knowledge}`,
+                    message: `Here are your cohorts stats: stress: ${stress}, sleep: ${sleep}, knowledge: ${knowledge}`,
                     choices: [{
                       name: 'continue',
                       value: 'continue'

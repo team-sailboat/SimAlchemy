@@ -32,7 +32,7 @@ const updateStats = (id) => {
               {
                 type: 'list',
                 name: 'continue',
-                message: `\rHere are your updated Cohort stats: stress: ${stress}, sleep: ${sleep}, knowledge: ${knowledge}\r`,
+                message: 'Here are your updated Cohort stats: ' + chalk.rgb(255, 140, 105)(`stress: ${stress}, sleep: ${sleep}, knowledge: ${knowledge}\r`),
                 choices: [{
                   name: 'continue',
                   value: 'continue'
