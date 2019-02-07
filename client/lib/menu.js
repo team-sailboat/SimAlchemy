@@ -26,6 +26,9 @@ const menu = (token, teacher) => {
       } else {
         return previousCohorts(token, teacher);
       }
+    })
+    .then(() => {
+      return menu(token, teacher);
     });
 };
 

@@ -5,6 +5,7 @@ const { getToken } = require('../helper/tokens');
 const menu = require('./menu');
 
 const previousCohorts = (token, teacher) => {
+  
   // console.log(token);
   return request
     .get(`${config.url}/teachers/${teacher._id}`)
@@ -19,20 +20,20 @@ const previousCohorts = (token, teacher) => {
           type: 'list',
           name: 'results',
           message: `Here are your previous cohorts:\n${prevCohorts.join('\n')}`,
-          choices: ([
-            {
-              name: 'go back',
-              value: 'back'
-            }
-          ])
+          choices: ['Go back']
         }
-      ]).then((choice) => {
-        console.log('token', token);
-        console.log('teacher', teacher);
-        console.log('choice', choice);
-        return menu(token, teacher);
-      });
-    }).catch(console.log);
+      ])
+        .then((choice) => {
+          if(choice.results === 'back') {
+            console.log('hiya');
+            return menu(token, teacher);
+          }
+        // console.log('token', token);
+        // console.log('teacher', teacher);
+        // console.log('here', typeof menu);
+        });
+    })
+    .catch(console.log);
 };
 
 module.exports = previousCohorts;
