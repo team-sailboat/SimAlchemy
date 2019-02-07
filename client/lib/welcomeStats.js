@@ -7,13 +7,26 @@ const assignmentPost = require('./assignment');
 const welcomeStats = (token, id) => {
   return inquirer.prompt([
     {
-      type: 'confirm',
+      type: 'list',
       name: 'welcome',
-      message: '\rCongrats, you’re hired! You’re an instructor at SimAlchemy and it’s the first day of class. Your job is to help your cohort survive by keeping their stress low and increasing their knowledge. Are you ready to begin?'
+      message: '\rCongrats, you’re hired! You’re an instructor at SimAlchemy and it’s the first day of class. Your job is to help your cohort survive by keeping their stress low and increasing their knowledge. Are you ready to begin?',
+      choices: [
+        {
+          name: 'YES',
+          value: 'yes'
+        },
+        {
+          name: 'NO',
+          value: 'no'
+        }
+      ]
     }
   ])
-    .then(welcome => {
-      if(welcome) {
+    .then(choice => {
+      if(choice.welcome === 'no') {
+        return process.exit();
+      }
+      else {
         let stress, sleep, knowledge;
         return request
           .post(`${config.url}/cohorts`)
