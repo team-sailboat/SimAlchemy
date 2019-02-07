@@ -17,7 +17,7 @@ const authUser = () => {
     {
       type: 'list',
       name: 'selection',
-      message: 'Are you a returning User?',
+      message: '\rAre you a returning User?',
       choices: [{
         name: 'Yes',
         value: 'signin'

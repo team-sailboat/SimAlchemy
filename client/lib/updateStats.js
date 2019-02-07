@@ -1,3 +1,4 @@
+/*eslint-disable no-console*/
 const config = require('../config');
 const request = require('superagent');
 const inquirer = require('inquirer');
@@ -31,10 +32,7 @@ const updateStats = (id) => {
               {
                 type: 'list',
                 name: 'continue',
-                message: `Here are your updated Cohort stats:
-                  stress: ${stress},
-                  sleep: ${sleep},
-                  knowledge: ${knowledge}\r`,
+                message: `\rHere are your updated Cohort stats: stress: ${stress}, sleep: ${sleep}, knowledge: ${knowledge}\r`,
                 choices: [{
                   name: 'continue',
                   value: 'continue'

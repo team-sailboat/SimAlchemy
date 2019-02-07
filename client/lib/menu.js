@@ -7,7 +7,7 @@ const menu = (token, teacher) => {
     {
       type: 'list',
       name: 'menu',
-      message: `Hi, ${teacher.username}! What would you like to do today?`,
+      message: `\rHi, ${teacher.username}! What would you like to do today?`,
       choices: [
         {
           name: 'View previous cohorts',
