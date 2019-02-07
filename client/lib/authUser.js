@@ -40,9 +40,12 @@ const authUser = () => {
       return menu(getToken(), getTeach());
     })
     .catch(error => {
-      // console.log(error.response.body.error);
-      console.log(error);
-      signin();
+      if(error.response) {
+        console.log(error.response.body.error);
+      }
+      else {
+        console.log(error);
+      }
     });
 };
 
