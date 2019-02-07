@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+body {
+  font-family: 'Permanent Marker', cursive;
+  background: black no-repeat center center fixed;
+}
+
+div {
+  font-family: 'Permanent Marker', cursive;
+  background: url('./white-board-background-5.jpg') no-repeat center center;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+
+h1 {
+  font-size: 6em;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+h2 {
+  width: 65%;
+  margin: 2em auto;
+}
+
+h3 {
+  font-size: 1.5em;
+  color: red;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.marker {
+  display: inline-block;
+}
+
+aside {
+  position: relative;
+  left: 17%;
+  font-size: 20px;
+  margin-top: 3em;
+}
+
+img {
+  float: left;
+  margin-right: 160px;
+}
+
+p {
+  margin: 40px auto;
+  font-size: 25px;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(55, 116, 248);
+  transition: width 1s;
+}
+
+a:hover {
+  width: 155px;
+}
+
+span {
+  color: rgb(55, 231, 158);
+}
