@@ -16,20 +16,17 @@ const updateStats = (id) => {
           .then(res => {
             const { stress, sleep, knowledge } = res.body;
             if(sleep <= 50 && stress >= 50) {
-              console.log(chalk.red('You done goof\'d'));
+              console.log(chalk.red('\rYou done goof\'d'));
               return gameOver(id);
             } else if(stress >= 100) {
-              console.log(chalk.red('You done goof\'d, your cohort got 2 stressed'));
+              console.log(chalk.red('\rYou done goof\'d, your cohort got 2 stressed'));
               return gameOver(id);
             }
             return inquirer.prompt([
               {
                 type: 'list',
                 name: 'continue',
-                message: `Here are your updated Cohort stats:
-                  stress: ${stress},
-                  sleep: ${sleep},
-                  knowledge: ${knowledge}\r`,
+                message: `\rHere are your updated Cohort stats: stress: ${stress}, sleep: ${sleep}, knowledge: ${knowledge}\r`,
                 choices: [{
                   name: 'continue',
                   value: 'continue'
