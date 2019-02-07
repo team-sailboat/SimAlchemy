@@ -20,6 +20,11 @@ h1 {
   margin: 0 auto;
 }
 
+main {
+  position: absolute;
+  top: 30%;
+}
+
 h2 {
   width: 65%;
   margin: 2em auto;
@@ -34,13 +39,22 @@ h3 {
 
 .marker {
   display: inline-block;
+  margin-right: 0;
 }
 
-aside {
+/* aside {
   position: relative;
   left: 17%;
   font-size: 20px;
   margin-top: 3em;
+} */
+
+aside {
+  position: absolute;
+  top: 76%;
+  left: 20%;
+  font-size: 20px;
+  margin: 0 auto;
 }
 
 img {
@@ -48,9 +62,18 @@ img {
   margin-right: 160px;
 }
 
-p {
-  margin: 40px auto;
+/* p {
+  margin-left: 15em;
   font-size: 25px;
+  width: 34%;
+  margin-top: 2em;
+} */
+
+p {
+  margin-left: 15em;
+  font-size: 25px;
+  width: 78%;
+  margin-top: 2em;
 }
 
 a {
@@ -68,7 +91,7 @@ span {
   color: rgb(55, 231, 158);
 }
 
-@media only screen and (max-width : 600px) {
+@media only screen and (max-width: 600px) {
   body {
     background-color: white;
   }
@@ -98,11 +121,47 @@ span {
   }
 
   p {
-    margin: 30px auto;
-    font-size: 33px;  
+    margin-left: 42%;
+    font-size: 25px;
+    width: 50%;
+    margin-top: 2em;
+  }
 }
-  
 
+@media only screen and (min-width: 1086px) {
+  div {
+    width: 100%;
+    position: absolute;
+  }
 
+  h1 {
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 24%;
+  }
+
+  main {
+    position: absolute;
+    left: 5%;
+    width: 100%;
+  }
+
+  h2 {
+    width: 50%;
+  }
+
+  aside {
+    margin: 2em auto;
+  }
+
+  .sailboat {
+    margin-left: 5%;
+  }
+
+  p {
+    margin-top: 2em;
+    width: 40%;
+  }
 }
+
 
