@@ -15,7 +15,7 @@ const updateStats = (id) => {
           .set('Authorization', `Bearer ${getToken()}`)
           .then(res => {
             const { stress, sleep, knowledge } = res.body;
-            if(sleep <= 50 && stress >= 50) {
+            if(sleep <= 10 && stress >= 90) {
               console.log(chalk.red('You done goof\'d'));
               return gameOver(id);
             } 
@@ -23,7 +23,7 @@ const updateStats = (id) => {
               console.log(chalk.red('You done goof\'d, your cohort got 2 stressed'));
               return gameOver(id);
             } 
-            else if(knowledge >= 100 && stress <= 99 && sleep >= 1) {
+            else if(knowledge > 100) {
               console.log(chalk.green('YOUR COHORT IS SO SMART. YOU WIN'));
               return gameOver(id);
             }
