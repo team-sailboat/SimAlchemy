@@ -47,12 +47,10 @@ const welcomeStats = (token, id) => {
                   .then(() => {
                     return assignmentPost(body._id);
                   });
-
               });
           });
       }
     });
 };
-
 
 module.exports = welcomeStats;
