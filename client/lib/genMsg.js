@@ -30,7 +30,7 @@ const genMsg = id => {
       else if(stress >= 70) {
         return chalk.red('Uh Oh, peeps be stressssed! Better think about this next assignment carefully.');
       }
-      else if(knowledge >= 75 && sleep >= 50 && stress <= 65) {
+      else if(knowledge >= 75 && sleep >= 60 && stress <= 65) {
         return chalk.green('You\'re doing great! Your cohort is on fire and their stress and sleep levels are healthy.');
       }
       else if((stress >= 85) && (sleep <= 20)) {
