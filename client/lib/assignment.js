@@ -4,6 +4,8 @@ const inquirer = require('inquirer');
 const { getToken } = require('../helper/tokens');
 const updateStats = require('./updateStats');
 const genMsg = require('./genMsg');
+const Chance = require('chance');
+const chance = new Chance();
 
 const assignmentPost = id => {
   return genMsg(id) 
@@ -53,13 +55,13 @@ const assignmentPost = id => {
               let travis;
   
               if(difficulty.type === 'easy') {
-                travis = 100;
+                travis = chance.integer({ min: 75, max: 100 });
               }
               else if(difficulty.type === 'medium') {
-                travis = 75;
+                travis = chance.integer({ min: 40, max: 74 });
               }
               else {
-                travis = 50;
+                travis = chance.integer({ min: 1, max: 39 });
               }
           
               return request 

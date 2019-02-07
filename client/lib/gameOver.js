@@ -1,31 +1,30 @@
 const config = require('../config');
 const request = require('superagent');
 const inquirer = require('inquirer');
-const {
-  getToken,
-  // getTeach
-} = require('../helper/tokens');
-// const menu = require('./menu');
+const { getToken } = require('../helper/tokens');
 const figlet = require('figlet');
+const chalk = require('chalk');
 
 const gameOver = (id) => {
-  return request
-    .get(`${config.url}/cohorts/${id}`)
-    .set('Authorization', `Bearer ${getToken()}`)
-    .then(res => {
-      const { stress, sleep, knowledge } = res.body;
+  return Promise.all([
+    request
+      .get(`${config.url}/cohorts/${id}`)
+      .set('Authorization', `Bearer ${getToken()}`),
+    request
+      .get(`${config.url}/cohorts/${id}/travis`)
+      .set('Authorization', `Bearer ${getToken()}`)
+  ])
+    .then(([stats, agg]) => {
+      const { stress, sleep, knowledge } = stats.body;
+      const { min, max, avg } = agg.body[0];
       return inquirer.prompt([
         {
           type: 'list',
           name: 'continue',
-          message: `Here are your FINAL stats:
-                  stress: ${stress},
-                  sleep: ${sleep},
-                  knowledge: ${knowledge}`,
+          message: 'Here are your FINAL stats:' + chalk.magenta(`\nstress: ${stress}, sleep: ${sleep}, knowledge: ${knowledge}`) +
+                  '\nHERE are your PASSING Travis stats:' + chalk.rgb(128, 0, 128)(`\nmin: ${min}, max: ${max}, avg: ${avg}`),
           choices: [{
-            // name: 'Thanks for playing!',
             name: '༼ つ ಥ_ಥ ༽つ',
-            // value: 'menu'
           }]
         }
       ]);

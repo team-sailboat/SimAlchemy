@@ -7,7 +7,7 @@ describe('Assignment Model', () => {
   it('validates a good model', async() => {
     const teacher = await getTeacher();
     const cohort = await getCohort({ teacher: teacher._id });
-    const assignment = new Assignment({
+    const assignment = await new Assignment({
       cohortId: cohort._id,
       name: 'lab',
       difficulty: 'hard',
