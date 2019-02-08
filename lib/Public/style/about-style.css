@@ -26,6 +26,7 @@ h2 {
 
 h3 {
   font-family: 'Permanent Marker', cursive;
+  font-size: 25px;
 }
 
 .blurbs {
@@ -50,9 +51,13 @@ p {
 
 a {
   font-family: 'Open Sans', sans-serif;
-  /* text-decoration: none; */
+  text-decoration: none;
   color: white;
   cursor: pointer;
+}
+
+.icon {
+  width: 25px;
 }
 
 @media only screen and (min-width: 800px) {
