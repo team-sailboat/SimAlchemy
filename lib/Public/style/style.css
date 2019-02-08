@@ -9,159 +9,109 @@ body {
 
 div {
   width: 100%;
-  position: absolute;
-  font-family: 'Permanent Marker', cursive;
-  background: url('./white-board-background-5.jpg') no-repeat center center;
-  height: 616px;
-  margin: 0 auto;
+  height: 612px;
 }
 
 h1 {
-  position: absolute;
-  font-size: 6em;
+  color: white;
+  margin: 1em auto;
+  color: white;
   text-align: center;
-  width: 50%;
-  /* margin: 0 auto; */
-  margin-top: 0%;
-  margin-left: 24%;
-}
-
-main {
-  position: absolute;
-  top: 22%;
-  left: 0%;
-  width: 100%;
+  font-size: 60px;
 }
 
 h2 {
-  width: 50%;
-  margin: 2em auto;
-}
-
-h3 {
-  position: absolute;
-  font-size: 1.5em;
-  left: 40%;
-  bottom: 86%;
-  color: red;
-  width: 100%;
-}
-
-.marker {
-  position: absolute;
-  left: 38%;
-  top: .5em;
-  display: inline-block;
-  margin-right: 0;
-}
-
-aside {
-  position: absolute;
-  top: 76%;
-  left: 20%;
-  font-size: 20px;
-  margin: 2em auto;
+  color: white;
+  margin: 1em auto;
+  text-align: center;
 }
 
 .sailboat {
-  margin: 5%;
+  width: 29%;
+  float: left;
+  margin-right: 3em;  
 }
 
-img {
-  float: left;
-  margin-right: 160px;
+h3 {
+  color: red;
+  font-size: 40px;
+  margin: 0 auto;
 }
 
 p {
-  margin-left: 17em;
-  font-size: 25px;
-  width: 40%;
-  margin-top: 2em;
+  color: white;
+  font-size: 35px;
+  margin-bottom: 0;
 }
 
 a {
   cursor: pointer;
   text-decoration: none;
-  color: rgb(55, 116, 248);
-  transition: width 1s;
-}
-
-a:hover {
-  width: 155px;
+  color: rgb(11, 61, 167);
 }
 
 span {
-  color: rgb(55, 231, 158);
+  color: red;
 }
 
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: white;
-  }
+.about {
+  font-size: 25px;
+  color: yellow;
+}
 
+@media only screen and (min-width: 800px) {
   div {
-    background: white;
+    font-family: 'Permanent Marker', cursive;
+    background: url('./white-board-background-5.jpg') no-repeat center center;
   }
 
   h1 {
-    width: 94%;
-    font-size: 4em;
+    color: black;
+    font-size: 6em;
+    margin: 0.5em auto;
   }
 
   h2 {
-    width: 97%;
+    color: black;
   }
 
   aside {
-    left: 0;
-    font-size: 25px;
-    margin-top: 0em;
-  }
-
-  img {
-    width: 140px;
-    margin-right: 17px;
-  }
-
-  p {
-    margin-left: 42%;
-    font-size: 25px;
-    width: 50%;
-    margin-top: 2em;
-  }
-}
-
-@media only screen and (min-width: 1300px) {
-  div {
-    width: 100%;
     position: absolute;
-  }
-
-  h1 {
-    position: absolute;
-    margin-left: 24%;
-  }
-
-  main {
-    position: absolute;
-    left: 5%;
-    width: 100%;
-  }
-
-  h2 {
-    width: 50%;
-  }
-
-  aside {
-    margin: 2em auto;
+    width: 60%;
+    margin: 2em 15%;
   }
 
   .sailboat {
-    margin-left: 5%;
+    width: 200px;
+    margin-right: 6em;
   }
 
   p {
-    margin-top: 2em;
-    width: 30%;
+    color: black;
+    font-size: 23px;
+    width: 90%;
+  }
+  .repo {
+    color: #3bccb1;
+  }
+  .about {
+    color: rgb(55, 116, 248);
+    font-size: 33px;
+    position: absolute;
+    top: 73%;
+    left: 92%;
+    transform: rotate(-20deg);
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 1250px) {
+  div {
+    margin-top: 8%;
+  }
+
+  aside {
+    width: 41%;
+    margin: 2em 28%;
   }
 }

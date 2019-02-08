@@ -81,7 +81,6 @@ const assignmentPost = id => {
                 });
             });
         });
-
     });
 };
 module.exports = assignmentPost;
