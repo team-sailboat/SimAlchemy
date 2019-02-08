@@ -12,13 +12,14 @@ console.log(gradient.cristal(figlet.textSync('SimAlchemy\r', {
   horizontalLayout: 'default',
   verticalLayout: 'default'
 })));
+console.log(gradient('yellow', 'green')('\nChoose your own code school adventure for the command line!\n'));
 
 const authUser = () => {
   return inquirer.prompt([
     {
       type: 'list',
       name: 'selection',
-      message: 'Are you a returning User?\n\n',
+      message: 'Are you a returning User?\n',
       choices: [{
         name: 'Yes',
         value: 'signin'
