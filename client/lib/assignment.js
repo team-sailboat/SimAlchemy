@@ -14,7 +14,7 @@ const assignmentPost = id => {
         {
           type: 'list',
           name: 'assignment',
-          message: `${msg}\n\n`,
+          message: `${msg}`,
           choices: [{ 
             name: 'lab',
             value: 'lab'

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const inquirer = require('inquirer');
 const config = require('../config');
 const request = require('superagent');
@@ -22,7 +23,6 @@ const previousCohorts = (token, teacher) => {
       ])
         .then((choice) => {
           if(choice.results === 'back') {
-            console.log('hiya');
             return menu(token, teacher);
           }
         });
