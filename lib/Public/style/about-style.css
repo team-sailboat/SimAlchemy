@@ -44,3 +44,17 @@ p {
   margin: 1em auto;
 }
 
+@media only screen and (min-width: 800px) {
+  article {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  
+  article {
+    width: 25%;
+  }
+}
+
+
