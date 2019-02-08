@@ -29,7 +29,7 @@ const genMsg = id => {
         })));
         return chalk.yellow('Your cohort is losing sleep fast and they are having trouble retaining knowledge. It might be time for a lecture to review!');
       }
-      else if((knowledge >= 50 && knowledge <= 60) && (sleep <= 55 && sleep >= 40)) {
+      else if((knowledge >= 50 && knowledge <= 60) && (sleep <= 75 && sleep >= 40)) {
         console.log(gradient.mind(figlet.textSync('Saweet!!', {
           horizontalLayout: 'default',
           verticalLayout: 'default'
@@ -50,7 +50,7 @@ const genMsg = id => {
         })));
         return chalk.green('You\'re doing great! Your cohort is on fire and their stress and sleep levels are healthy.');
       }
-      else if((stress >= 85) && (sleep <= 20)) {
+      else if((stress >= 85) && (sleep <= 60)) {
         console.log(gradient.mind(figlet.textSync('YIKES', {
           horizontalLayout: 'default',
           verticalLayout: 'default'
