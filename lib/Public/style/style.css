@@ -9,12 +9,94 @@ body {
 
 div {
   width: 100%;
-  position: absolute;
-  font-family: 'Permanent Marker', cursive;
-  background: url('./white-board-background-5.jpg') no-repeat center center;
-  height: 616px;
+  height: 612px;
+}
+
+h1 {
+  color: white;
+  margin: 1em auto;
+  color: white;
+  text-align: center;
+  font-size: 60px;
+}
+
+h2 {
+  color: white;
+  margin: 1em auto;
+  text-align: center;
+}
+
+.sailboat {
+  width: 29%;
+  float: left;
+  margin-right: 3em;  
+}
+
+h3 {
+  color: red;
+  font-size: 40px;
   margin: 0 auto;
 }
+
+p {
+  color: white;
+  font-size: 35px;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(11, 61, 167);
+}
+
+span {
+  color: red;
+}
+
+@media only screen and (min-width: 800px) {
+  div {
+    font-family: 'Permanent Marker', cursive;
+    background: url('./white-board-background-5.jpg') no-repeat center center;
+  }
+
+  h1 {
+    color: black;
+    font-size: 6em;
+    margin: 0.5em auto;
+  }
+
+  h2 {
+    color: black;
+  }
+
+  aside {
+    width: 65%;
+    margin: 2em auto;
+  }
+
+  .sailboat {
+    width: 200px;
+    margin-right: 6em;
+  }
+
+  p {
+    color: black;
+    font-size: 20px;
+  }
+  .repo {
+    color: #3bccb1;
+  }
+  a {
+    color: rgb(55, 116, 248);
+  }
+}
+
+
+
+
+
+
+/* 
 
 h1 {
   position: absolute;
@@ -22,7 +104,7 @@ h1 {
   text-align: center;
   width: 50%;
   /* margin: 0 auto; */
-  margin-top: 0%;
+  /* margin-top: 0%;
   margin-left: 24%;
 }
 
@@ -164,4 +246,4 @@ span {
     margin-top: 2em;
     width: 30%;
   }
-}
+} */ 
