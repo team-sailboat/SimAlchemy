@@ -3,6 +3,7 @@ const config = require('../config');
 const request = require('superagent');
 const { getToken } = require('../helper/tokens');
 const menu = require('./menu');
+const gradient = require('gradient-string');
 
 const previousCohorts = (token, teacher) => {
   return request
@@ -10,7 +11,7 @@ const previousCohorts = (token, teacher) => {
     .set('Authorization', `Bearer ${getToken()}`)
     .then(({ body }) => {
       const prevCohorts = body.map((c, i) => {
-        return `cohort${i + 1}: stress: ${c.stress}, sleep: ${c.sleep}, knowledge: ${c.knowledge}`;
+        return gradient.pastel(`cohort${i + 1}: stress: ${c.stress}, sleep: ${c.sleep}, knowledge: ${c.knowledge}`);
       });
       return inquirer.prompt([
         {
