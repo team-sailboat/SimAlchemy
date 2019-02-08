@@ -43,14 +43,14 @@ const genMsg = id => {
         })));
         return chalk.red('Uh Oh, peeps be stressssed! Better think about this next assignment carefully.');
       }
-      else if(knowledge >= 75 && sleep >= 50 && stress <= 65) {
+      else if(knowledge >= 65 && sleep >= 70 && stress <= 65) {
         console.log(gradient.mind(figlet.textSync('Yeah baby!!', {
           horizontalLayout: 'default',
           verticalLayout: 'default'
         })));
         return chalk.green('You\'re doing great! Your cohort is on fire and their stress and sleep levels are healthy.');
       }
-      else if((stress >= 85) && (sleep <= 60)) {
+      else if((stress >= 85) && (sleep <= 80)) {
         console.log(gradient.mind(figlet.textSync('YIKES', {
           horizontalLayout: 'default',
           verticalLayout: 'default'
