@@ -6,7 +6,6 @@ const figlet = require('figlet');
 const chalk = require('chalk');
 const gradient = require('gradient-string');
 
-
 const gameOver = (id) => {
   return Promise.all([
     request
@@ -30,7 +29,8 @@ const gameOver = (id) => {
           }]
         }
       ]);
-    }).then(() => {
+    })
+    .then(() => {
       console.log(gradient.morning(figlet.textSync('GAME OVER', {
         font: 'weird',
         horizontalLayout: 'default',

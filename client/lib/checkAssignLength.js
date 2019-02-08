@@ -1,6 +1,5 @@
 const config = require('../config');
 const request = require('superagent');
-// const inquirer = require('inquirer');
 const { getToken } = require('../helper/tokens');
 
 const checkAssignLength = (id) => {

@@ -1,5 +1,4 @@
 /*eslint-disable no-console*/
-
 const config = require('../config');
 const inquirer = require('inquirer');
 const request = require('superagent');

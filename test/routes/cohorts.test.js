@@ -1,16 +1,10 @@
 const request = require('supertest');
 const app = require('../../lib/app');
-const {
-  getTeacher,
-  getToken,
-  getCohorts,
-  getCohort
-} = require('../dataHelpers');
-// const mongoose = require('mongoose');
+const { getTeacher, getToken, getCohorts, getCohort } = require('../dataHelpers');
 
 describe('cohorts', () => {
   it('can post a cohort', () => {
-    let stress, sleep, knowledge; // use defaults
+    let stress, sleep, knowledge; 
     return getTeacher()
       .then(teacher => {
         return request(app)
@@ -67,31 +61,7 @@ describe('cohorts', () => {
                 _id: expect.any(String), 
                 username: expect.any(String) } 
             });
-            // expect(res.body.assignments).toContainEqual({
-            //   cohortId: expect.any(String),
-            //   name: expect.any(String),
-            //   difficulty: expect.any(String),
-            //   travis: expect.any(Boolean)
-            // });
           });
       });
   });
-  
-  // it('can update a cohort', () => {
-  //   return getCohort()
-  //     .then(cohort => {
-  //       return request(app)
-  //         .patch(`/cohorts/${cohort._id}`)
-  //         .set('Authorization', `Bearer ${getToken()}`)
-  //         .send({ sleep: 0, knowledge: 50, stress: 6 });
-  //     })
-  //     .then(res => {
-  //       expect(res.body).toEqual({ stress: 6,
-  //         sleep: 0,
-  //         knowledge: 50,
-  //         teacher: { 
-  //           _id: expect.any(String), 
-  //           username: expect.any(String) } });
-  //     });
-  // });
 });

@@ -3,7 +3,6 @@ const Assignment = require('../../lib/models/Assignment');
 const { getTeacher, getCohort } = require('../dataHelpers');
 
 describe('Assignment Model', () => {
-
   it('validates a good model', async() => {
     const teacher = await getTeacher();
     await getCohort({ teacher: teacher._id })
@@ -21,8 +20,6 @@ describe('Assignment Model', () => {
           difficulty: 'hard',
           travis: 50
         });
-
       });
   });
-
 });

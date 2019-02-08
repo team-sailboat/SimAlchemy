@@ -14,7 +14,6 @@ const genMsg = id => {
       const { stress, sleep, knowledge } = res.body;
       if(stress === 25 && sleep === 100) {
         console.log(gradient.mind(figlet.textSync('Let\'s GO!', {
-          // font: 'chunky',
           horizontalLayout: 'default',
           verticalLayout: 'default'
         })));

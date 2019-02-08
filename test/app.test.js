@@ -10,6 +10,7 @@ describe('app', () => {
       done();
     });
   });
+  
   afterAll(done => {
     mongoose.connection.close();
     done();
@@ -29,7 +30,6 @@ describe('app', () => {
       .get('/')
       .then(res => {
         expect(res.status).toEqual(200);
-        // expect(res.text).toEqual('Welcome to Team Sailboat\'s SimAlchemy App');
         done();
       });
   });
