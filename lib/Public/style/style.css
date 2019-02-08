@@ -41,6 +41,7 @@ h3 {
 p {
   color: white;
   font-size: 35px;
+  margin-bottom: 0;
 }
 
 a {
@@ -51,6 +52,11 @@ a {
 
 span {
   color: red;
+}
+
+.about {
+  font-size: 25px;
+  color: yellow;
 }
 
 @media only screen and (min-width: 800px) {
@@ -96,6 +102,17 @@ span {
     left: 92%;
     transform: rotate(-20deg);
     text-align: center;
+  }
+}
+
+@media only screen and (min-width: 1250px) {
+  div {
+    margin-top: 8%;
+  }
+
+  aside {
+    width: 41%;
+    margin: 2em 28%;
   }
 }
 
