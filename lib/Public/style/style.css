@@ -2,8 +2,9 @@
 
 body {
   font-family: 'Permanent Marker', cursive;
-  background: black no-repeat center center fixed;
-
+  background: #00F260;
+  background: -webkit-linear-gradient(to right, #0575E6, #00F260);
+  background: linear-gradient(to right, #0575E6, #00F260);
 }
 
 div {
@@ -164,5 +165,3 @@ span {
     width: 30%;
   }
 }
-
-

@@ -4,6 +4,7 @@ const inquirer = require('inquirer');
 const { getToken } = require('../helper/tokens');
 const figlet = require('figlet');
 const chalk = require('chalk');
+const gradient = require('gradient-string');
 
 const gameOver = (id) => {
   return Promise.all([
@@ -21,21 +22,21 @@ const gameOver = (id) => {
         {
           type: 'list',
           name: 'continue',
-          message: 'Here are your FINAL stats:' + chalk.magenta(`\nstress: ${stress}, sleep: ${sleep}, knowledge: ${knowledge}`) +
-                  '\nHERE are your PASSING Travis stats:' + chalk.rgb(128, 0, 128)(`\nmin: ${min}, max: ${max}, avg: ${avg}`),
+          message: 'Here are your FINAL stats: ' + chalk.magenta(`stress: ${stress}, sleep: ${sleep}, knowledge: ${knowledge}\n\n`) +
+                  'HERE are your PASSING Travis stats: ' + chalk.rgb(128, 0, 128)(`min: ${min}, max: ${max}, avg: ${avg}\n\n`),
           choices: [{
             name: '༼ つ ಥ_ಥ ༽つ',
           }]
         }
       ]);
-    }).then(() => {
-      console.log(figlet.textSync('GAME OVER', {
+    })
+    .then(() => {
+      console.log(gradient.morning(figlet.textSync('GAME OVER', {
         font: 'weird',
         horizontalLayout: 'default',
         verticalLayout: 'default'
-      }));
+      })));
       process.exit();
-      // return menu(getToken(), getTeach());
     });
 };
 

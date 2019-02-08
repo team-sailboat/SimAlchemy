@@ -5,8 +5,10 @@
 ## Overview
 In this back-end app, we built a choose your own code school adventure for the command line. Teachers can log in and post up to 5 assignments to try and better their cohort's grades; includes app-wide unit and end-to-end test coverage.
 
+![SimAlchemy](screenshot.png)
+
 ## Technologies used
-Node.js, [MongoDB](https://www.mongodb.com/what-is-mongodb), [Express](https://www.npmjs.com/package/express), [Jest](https://www.npmjs.com/package/jest), [SuperTest](https://www.npmjs.com/package/supertest), [nodemon](https://www.npmjs.com/package/nodemon), [dotenv](https://www.npmjs.com/package/dotenv), [Mongoose](https://www.npmjs.com/package/mongoose), [morgan](https://www.npmjs.com/package/morgan), [SuperAgent](https://www.npmjs.com/package/superagent), [inquirer](https://www.npmjs.com/package/inquirer), [bcrypt.js](https://www.npmjs.com/package/bcryptjs), [figlet](https://www.npmjs.com/package/figlet), [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken), [Chance](https://www.npmjs.com/package/chance)
+Node.js, [MongoDB](https://www.mongodb.com/what-is-mongodb), [Express](https://www.npmjs.com/package/express), [Jest](https://www.npmjs.com/package/jest), [SuperTest](https://www.npmjs.com/package/supertest), [nodemon](https://www.npmjs.com/package/nodemon), [dotenv](https://www.npmjs.com/package/dotenv), [Mongoose](https://www.npmjs.com/package/mongoose), [morgan](https://www.npmjs.com/package/morgan), [SuperAgent](https://www.npmjs.com/package/superagent), [inquirer](https://www.npmjs.com/package/inquirer), [bcrypt.js](https://www.npmjs.com/package/bcryptjs), [figlet](https://www.npmjs.com/package/figlet), [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken), [Chance](https://www.npmjs.com/package/chance), [chalk](https://www.npmjs.com/package/chalk), [gradient-string](https://www.npmjs.com/package/gradient-string)
 
 ## Getting Started
 1. Clone and download [GitHub repo](https://github.com/team-sailboat/SimAlchemy)
