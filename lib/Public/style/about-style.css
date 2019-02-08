@@ -39,11 +39,13 @@ article {
   width: 100%;
 }
 
-img {
+.gif {
   width: 250px;
+  height: 200px;
 }
 
 p {
+  font-family: 'Open Sans', sans-serif;
   width: 250px;
   text-align: left;
   margin: 1em auto;
@@ -74,5 +76,3 @@ a {
     width: 25%;
   }
 }
-
-
