@@ -25,7 +25,7 @@ describe('app', () => {
       });
   });
 
-  it('can return a homepage message', done => {
+  it('can return a homepage', done => {
     return request(app)
       .get('/')
       .then(res => {
