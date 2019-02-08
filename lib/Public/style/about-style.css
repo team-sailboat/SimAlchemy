@@ -15,6 +15,10 @@ h1 {
   font-family: 'Permanent Marker', cursive;
 }
 
+span {
+  font-size: 1.5em;
+}
+
 h2 {
   font-family: 'Open Sans', sans-serif;
   text-align: center;
@@ -44,6 +48,13 @@ p {
   margin: 1em auto;
 }
 
+a {
+  font-family: 'Open Sans', sans-serif;
+  /* text-decoration: none; */
+  color: white;
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 800px) {
   article {
     width: 50%;
@@ -51,7 +62,9 @@ p {
 }
 
 @media only screen and (min-width: 1000px) {
-  
+  .blurbs {
+    justify-content: space-evenly;
+  }
   article {
     width: 25%;
   }
