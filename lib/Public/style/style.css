@@ -81,13 +81,18 @@ span {
 
   p {
     color: black;
-    font-size: 20px;
+    font-size: 23px;
   }
   .repo {
     color: #3bccb1;
   }
-  a {
+  .about {
     color: rgb(55, 116, 248);
+    font-size: 33px;
+    position: absolute;
+    top: 75%;
+    left: 73%;
+    transform: rotate(-20deg);
   }
 }
 
