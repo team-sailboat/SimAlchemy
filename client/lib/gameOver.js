@@ -26,7 +26,7 @@ const gameOver = (id) => {
           message: 'Here are your FINAL stats: ' + chalk.magenta(`stress: ${stress}, sleep: ${sleep}, knowledge: ${knowledge}\n\n`) +
                   'HERE are your PASSING Travis stats: ' + chalk.rgb(128, 0, 128)(`min: ${min}, max: ${max}, avg: ${avg}\n\n`),
           choices: [{
-            name: '༼ つ ಥ_ಥ ༽つ',
+            name: '༼ つ ಥ_ಥ ༽つ'
           }]
         }
       ]);
