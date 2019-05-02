@@ -13,7 +13,9 @@ const updateStats = async(id) => {
     const stats = await request
       .get(`${config.url}/cohorts/${id}`)
       .set('Authorization', `Bearer ${getToken()}`);
+    
     const { stress, sleep, knowledge } = stats.body;
+    
     if(sleep <= 10 && stress >= 90) {
       console.log(chalk.red('You done goof\'d'));
       return gameOver(id);
@@ -42,6 +44,5 @@ const updateStats = async(id) => {
     return gameOver(id);
   }
 };
-
 
 module.exports = updateStats;
