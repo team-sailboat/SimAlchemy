@@ -5,8 +5,8 @@ const request = require('superagent');
 const { setToken, setTeach } = require('../helper/tokens');
 const welcomeStats = require('./welcomeStats');
 
-module.exports = () => {
-  return inquirer.prompt([
+module.exports = async() => {
+  const signUp = await inquirer.prompt([
     {
       type: 'input',
       name: 'username',
@@ -24,19 +24,20 @@ module.exports = () => {
         return 'Please enter a password';
       }
     }
-  ])
-    .then(({ username, password }) => {
-      return request
-        .post(`${config.url}/auth/signup`)
-        .send({ username, password });
-    })
-    .then(res => {
-      return Promise.all([
-        setToken(res.body.token),
-        setTeach(res.body.teacher)
-      ])
-        .then(([token, teacher]) => {
-          return welcomeStats(token, teacher._id);
-        });
-    });
+  ]);
+
+  const { username, password } = signUp;
+
+  const signIn =  await request
+    .post(`${config.url}/auth/signup`)
+    .send({ username, password });
+
+  const setting = await Promise.all([
+    setToken(signIn.body.token),
+    setTeach(signIn.body.teacher)
+  ]);
+
+  const [token, teacher] = setting;
+  
+  await welcomeStats(token, teacher._id);
 };
