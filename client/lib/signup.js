@@ -27,7 +27,6 @@ module.exports = async() => {
   ]);
 
   const { username, password } = signUp;
-
   const signIn =  await request
     .post(`${config.url}/auth/signup`)
     .send({ username, password });
@@ -38,6 +37,5 @@ module.exports = async() => {
   ]);
 
   const [token, teacher] = setting;
-  
   await welcomeStats(token, teacher._id);
 };
