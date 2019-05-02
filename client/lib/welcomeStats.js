@@ -25,42 +25,44 @@ const welcomeStats = async(token, id) => {
       ]
     }
   ]);
+
   if(choice.welcome === 'no') {
     return process.exit();
   }
+
   else {
-    let stress, sleep, knowledge;
     const cohort = await request
       .post(`${config.url}/cohorts`)
       .set('Authorization', `Bearer ${token}`)
       .send({
         teacher: id,
-        stress,
-        sleep,
-        knowledge
+        stress: 25,
+        sleep: 100,
+        knowledge: 25
       });
     console.log(gradient.mind(figlet.textSync('Let\'s GO!', {
       horizontalLayout: 'default',
       verticalLayout: 'default'
     })));
-    await request
+
+    const newCohort = await request
       .get(`${config.url}/cohorts/${cohort.body._id}`)
-      .set('Authorization', `Bearer ${token}`)
-      .then(async(res) => {
-        const { stress, sleep, knowledge } = res.body;
-        await inquirer.prompt([
-          {
-            type: 'list',
-            name: 'continue',
-            message: 'Here are your cohorts stats: ' + chalk.rgb(155, 155, 155).inverse(`stress: ${stress}, sleep: ${sleep}, knowledge: ${knowledge}\n\n`),
-            choices: [{
-              name: 'continue',
-              value: 'continue'
-            }]
-          }
-        ]);
-      });
-    return assignmentPost(cohort.body._id);
+      .set('Authorization', `Bearer ${token}`);
+    
+    const { stress, sleep, knowledge } = newCohort.body;
+    
+    await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'continue',
+        message: 'Here are your cohorts stats: ' + chalk.rgb(155, 155, 155).inverse(`stress: ${stress}, sleep: ${sleep}, knowledge: ${knowledge}\n\n`),
+        choices: [{
+          name: 'continue',
+          value: 'continue'
+        }]
+      }
+    ]);
+    return assignmentPost(newCohort.body._id);
   }
 };
 
