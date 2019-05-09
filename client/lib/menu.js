@@ -2,8 +2,8 @@ const inquirer = require('inquirer');
 const welcomeStats = require('./welcomeStats');
 const previousCohorts = require('./previousCohorts');
 
-const menu = (token, teacher) => {
-  return inquirer.prompt([
+const menu = async(token, teacher) => {
+  const prompt = await inquirer.prompt([
     {
       type: 'list',
       name: 'menu',
@@ -19,17 +19,13 @@ const menu = (token, teacher) => {
         }
       ]
     }
-  ])
-    .then(choice => {
-      if(choice.menu === 'game') {
-        return welcomeStats(token, teacher._id);
-      } else {
-        return previousCohorts(token, teacher);
-      }
-    })
-    .then(() => {
-      return menu(token, teacher);
-    });
+  ]);
+  if(prompt.menu === 'game') {
+    await welcomeStats(token, teacher._id);
+  } else {
+    await previousCohorts(token, teacher);
+  }
+  return menu(token, teacher);
 };
 
 module.exports = menu;

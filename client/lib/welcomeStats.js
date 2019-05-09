@@ -7,8 +7,8 @@ const chalk = require('chalk');
 const gradient = require('gradient-string');
 const figlet = require('figlet');
 
-const welcomeStats = (token, id) => {
-  return inquirer.prompt([
+const welcomeStats = async(token, id) => {
+  const choice = await inquirer.prompt([
     {
       type: 'list',
       name: 'welcome',
@@ -24,50 +24,46 @@ const welcomeStats = (token, id) => {
         }
       ]
     }
-  ])
-    .then(choice => {
-      if(choice.welcome === 'no') {
-        return process.exit();
+  ]);
+
+  if(choice.welcome === 'no') {
+    return process.exit();
+  }
+
+  else {
+    const cohort = await request
+      .post(`${config.url}/cohorts`)
+      .set('Authorization', `Bearer ${token}`)
+      .send({
+        teacher: id,
+        stress: 25,
+        sleep: 100,
+        knowledge: 25
+      });
+    console.log(gradient.mind(figlet.textSync('Let\'s GO!', {
+      horizontalLayout: 'default',
+      verticalLayout: 'default'
+    })));
+
+    const newCohort = await request
+      .get(`${config.url}/cohorts/${cohort.body._id}`)
+      .set('Authorization', `Bearer ${token}`);
+    
+    const { stress, sleep, knowledge } = newCohort.body;
+    
+    await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'continue',
+        message: 'Here are your cohorts stats: ' + chalk.rgb(155, 155, 155).inverse(`stress: ${stress}, sleep: ${sleep}, knowledge: ${knowledge}\n\n`),
+        choices: [{
+          name: 'continue',
+          value: 'continue'
+        }]
       }
-      else {
-        let stress, sleep, knowledge;
-        return request
-          .post(`${config.url}/cohorts`)
-          .set('Authorization', `Bearer ${token}`)
-          .send({
-            teacher: id,
-            stress,
-            sleep,
-            knowledge
-          })
-          .then(({ body }) => {
-            console.log(gradient.mind(figlet.textSync('Let\'s GO!', {
-              horizontalLayout: 'default',
-              verticalLayout: 'default'
-            })));
-            return request
-              .get(`${config.url}/cohorts/${body._id}`)
-              .set('Authorization', `Bearer ${token}`)
-              .then(res => {
-                const { stress, sleep, knowledge } = res.body;
-                return inquirer.prompt([
-                  {
-                    type: 'list',
-                    name: 'continue',
-                    message: 'Here are your cohorts stats: ' + chalk.rgb(155, 155, 155).inverse(`stress: ${stress}, sleep: ${sleep}, knowledge: ${knowledge}\n\n`),
-                    choices: [{
-                      name: 'continue',
-                      value: 'continue'
-                    }]
-                  }
-                ])
-                  .then(() => {
-                    return assignmentPost(body._id);
-                  });
-              });
-          });
-      }
-    });
+    ]);
+    return assignmentPost(newCohort.body._id);
+  }
 };
 
 module.exports = welcomeStats;

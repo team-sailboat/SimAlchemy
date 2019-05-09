@@ -14,8 +14,8 @@ console.log(gradient.cristal(figlet.textSync('SimAlchemy\r', {
 })));
 console.log(gradient('yellow', 'green')('\nChoose your own code school adventure for the command line!\n'));
 
-const authUser = () => {
-  return inquirer.prompt([
+const authUser = async() => {
+  const prompt = await inquirer.prompt([
     {
       type: 'list',
       name: 'selection',
@@ -29,26 +29,15 @@ const authUser = () => {
         value: 'signup'
       }]
     }
-  ])
-    .then(({ selection }) => {
-      if(selection === 'signin') {
-        return signin();
-      }
-      else if(selection === 'signup') {
-        return signup();
-      }
-    })
-    .then(() => {
-      return menu(getToken(), getTeach());
-    })
-    .catch(error => {
-      if(error.response) {
-        console.log(error.response.body.error);
-      }
-      else {
-        console.log(error);
-      }
-    });
+  ]);
+  if(prompt.selection === 'signin') {
+    return signin();
+  }
+  else if(prompt.selection === 'signup') {
+    return signup();
+  }
+  return menu(getToken(), getTeach());
+   
 };
 
 module.exports = authUser;
