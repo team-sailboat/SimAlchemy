@@ -42,7 +42,7 @@
     "gradient-string": "^1.2.0",
     "inquirer": "^6.2.2",
     "jsonwebtoken": "^8.4.0",
-    "mongoose": "^5.4.9",
+    "mongoose": "^5.7.14",
     "morgan": "^1.9.1",
     "superagent": "^4.1.0"
   },
